@@ -14,8 +14,12 @@ import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
 import { MajorsComponent } from "majors/majors.component"
 import { MajorStudentsComponent } from "majors/major-students/major-students.component"
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http"
 import { LoginComponent } from './login/login.component'
+import {MatCardModule} from '@angular/material/card'
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
 
 @NgModule({
   declarations: [
@@ -36,6 +40,8 @@ import { LoginComponent } from './login/login.component'
     FormsModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
     HttpClientModule,
   ],
   providers: [],
