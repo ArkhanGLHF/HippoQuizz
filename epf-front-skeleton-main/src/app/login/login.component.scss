@@ -1,0 +1,16 @@
+//Gère le css des images pour qu'elle soit margée de 2px et qu'il y ait un border radius
+img {
+  margin: 2px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+// Gère la taille de la mat-card pour qu'elle soit centrée
+mat-card {
+    max-width: 400px;
+    width: auto;
+    margin: auto;
+    margin-top: 10%;
+    padding: 20px;
+    text-align: center;
+    
+}
