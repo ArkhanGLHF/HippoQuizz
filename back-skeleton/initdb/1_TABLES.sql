@@ -37,3 +37,9 @@ create table users (
    email TEXT not null,
    password TEXT not null
 );
+
+create table quiz (
+   id SERIAL PRIMARY KEY,
+   title TEXT  not null,
+   description TEXT not null
+);

@@ -20,12 +20,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     @GetMapping("") // URL MAPPING  => localhost:8080/users
-    public List<User> listUsers(@RequestParam(required = false) Integer majorId, @RequestParam(required = false) Integer courseId) {
-        if (majorId != null && courseId !=null) {
-            return userService.searchByMajorAndCourse(majorId, courseId);
-        }
-        return userService.findAll();
-    }
+    public List<User> listUsers() { return userService.findAll(); }
 
     @GetMapping("/{id}") // URL EXTENSION => localhost:8080/users/{id}
     public User getUserById(@PathVariable Long id) {
