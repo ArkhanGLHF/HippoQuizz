@@ -23,4 +23,10 @@ INSERT INTO courses (id, name, hours) VALUES (8, 'Lean Management', 30);
 INSERT INTO student_course (id, student_id, course_id) VALUES (1, 1, 7);
 
 
+-- Create 3 users : 1, Mehdiabrk, mehdi.aberkane@edu.ece.fr, Amdin0001 | 2, 'Arkahn', 'hipplyte.cacheux@edu.ece.fr', 'Admin0002' | 3, Adrien, adrien.mattei@edu.ece.fr, Admin0003
+
+INSERT INTO users (id, username,email, password) VALUES ( 1, 'Mehdiabrk', 'mehdi.aberkane@edu.ece.fr', 'Amdin0001');
+INSERT INTO users (id, username,email, password) VALUES ( 2, 'Arkahn',  'hipplyte.cacheux@edu.ece.fr', 'Admin0002');
+INSERT INTO users (id, username,email, password) VALUES ( 3, 'Adrien', 'adrien.mattei@edu.ece.fr', 'Admin0003');
+
 

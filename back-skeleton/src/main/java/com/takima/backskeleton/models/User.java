@@ -15,15 +15,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String username;
+    private String email;
 
     private String password;
 
     private User(Builder builder) {
         this.id = builder.id;
-        this.firstName = builder.firstName;
-        this.lastName = builder.lastName;
+        this.username = builder.username;
+        this.email = builder.email;
         this.password = builder.password;
     }
 
@@ -31,24 +31,24 @@ public class User {
     public User() {
     }
 
-    public User(String lastName, String lastname, String password) {
-        this.firstName = lastName;
-        this.lastName = lastname;
+    public User(String username,String email,  String password) {
+        this.username = email;
+        this.email = username;
         this.password = password;
     }
 
-    public User(Long id, String name, String lastname, String password) {
+    public User(Long id, String username, String email, String password) {
         this.id = id;
-        this.firstName = name;
-        this.lastName = lastname;
+        this.username = username;
+        this.email = email;
         this.password = password;
     }
 
 
     public static class Builder {
         private Long id;
-        private String firstName;
-        private String lastName;
+        private String username;
+        private String email;
         private String password;
 
         public Builder id(Long id) {
@@ -56,13 +56,13 @@ public class User {
             return this;
         }
 
-        public Builder firstName(String firstName) {
-            this.firstName = firstName;
+        public Builder username(String username) {
+            this.username = username;
             return this;
         }
 
-        public Builder lastName(String lastName) {
-            this.lastName = lastName;
+        public Builder email(String email) {
+            this.email = email;
             return this;
         }
 

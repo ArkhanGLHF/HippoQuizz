@@ -9,8 +9,8 @@ public class UserMapper {
     public static User fromDto(UserDto dto, Long id) throws IOException {
         return new User.Builder()
                 .id(id)
-                .firstName(dto.getFirstName())
-                .lastName(dto.getLastName())
+                .username(dto.getUsername())
+                .email(dto.getEmail())
                 .password(dto.getPassword())
                 .build();
     }

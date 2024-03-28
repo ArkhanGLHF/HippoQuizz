@@ -33,7 +33,7 @@ create table student_course
 
 create table users (
    id SERIAL PRIMARY KEY,
-   firstName TEXT  not null,
-   lastName TEXT not null,
+   username TEXT  not null,
+   email TEXT not null,
    password TEXT not null
 );
