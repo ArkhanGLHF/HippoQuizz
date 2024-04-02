@@ -45,3 +45,51 @@ VALUES
     (8, 2, 'Recognize this iconic landmark in New York City, USA.', 'https://example.com/statue-of-liberty.jpg'),
     (9, 2, 'What is the name of this ancient wonder located in Giza, Egypt?', 'https://example.com/great-pyramid.jpg'),
     (10, 2, 'Identify this famous bridge located in San Francisco, USA.', 'https://example.com/golden-gate-bridge.jpg');
+
+-- Insert data into the answers table for the Animal Quiz
+INSERT INTO answers (id, questionId, answerText, isCorrect, answerPicture)
+VALUES
+    (1, 1, 'African Elephant', true, 'https://example.com/african-elephant-answer.jpg'),
+    (2, 1, 'Giraffe', false, 'https://example.com/giraffe.jpg'),
+    (3, 1, 'Hippopotamus', false, 'https://example.com/hippo.jpg'),
+    (4, 1, 'Rhinoceros', false, 'https://example.com/rhino.jpg'),
+    (5, 2, 'Lion', true, 'https://example.com/lion-answer.jpg'),
+    (6, 2, 'Tiger', false, 'https://example.com/tiger.jpg'),
+    (7, 2, 'Leopard', false, 'https://example.com/leopard.jpg'),
+    (8, 2, 'Cheetah', false, 'https://example.com/cheetah.jpg'),
+    (9, 3, 'Cheetah', true, 'https://example.com/cheetah-answer.jpg'),
+    (10, 3, 'Gazelle', false, 'https://example.com/gazelle.jpg'),
+    (11, 3, 'Wildebeest', false, 'https://example.com/wildebeest.jpg'),
+    (12, 3, 'Ostrich', false, 'https://example.com/ostrich.jpg'),
+    (13, 4, 'Zebra', true, 'https://example.com/zebra-answer.jpg'),
+    (14, 4, 'Giraffe', false, 'https://example.com/giraffe.jpg'),
+    (15, 4, 'Okapi', false, 'https://example.com/okapi.jpg'),
+    (16, 4, 'Antelope', false, 'https://example.com/antelope.jpg'),
+    (17, 5, 'Kangaroo', true, 'https://example.com/kangaroo-answer.jpg'),
+    (18, 5, 'Koala', false, 'https://example.com/koala.jpg'),
+    (19, 5, 'Emu', false, 'https://example.com/emu.jpg'),
+    (20, 5, 'Platypus', false, 'https://example.com/platypus.jpg');
+
+-- Insert data into the answers table for the Famous Landmarks Quiz
+INSERT INTO answers (id, questionId, answerText, isCorrect, answerPicture)
+VALUES
+    (21, 6, 'Eiffel Tower', true, 'https://example.com/eiffel-tower-answer.jpg'),
+    (22, 6, 'Arc de Triomphe', false, 'https://example.com/arc-de-triomphe.jpg'),
+    (23, 6, 'Notre-Dame Cathedral', false, 'https://example.com/notre-dame.jpg'),
+    (24, 6, 'Louvre Museum', false, 'https://example.com/louvre.jpg'),
+    (25, 7, 'Taj Mahal', true, 'https://example.com/taj-mahal-answer.jpg'),
+    (26, 7, 'Red Fort', false, 'https://example.com/red-fort.jpg'),
+    (27, 7, 'Qutub Minar', false, 'https://example.com/qutub-minar.jpg'),
+    (28, 7, 'Hawa Mahal', false, 'https://example.com/hawa-mahal.jpg'),
+    (29, 8, 'Statue of Liberty', true, 'https://example.com/statue-of-liberty-answer.jpg'),
+    (30, 8, 'Empire State Building', false, 'https://example.com/empire-state-building.jpg'),
+    (31, 8, 'Central Park', false, 'https://example.com/central-park.jpg'),
+    (32, 8, 'Brooklyn Bridge', false, 'https://example.com/brooklyn-bridge.jpg'),
+    (33, 9, 'Great Pyramid of Giza', true, 'https://example.com/great-pyramid-answer.jpg'),
+    (34, 9, 'Sphinx', false, 'https://example.com/sphinx.jpg'),
+    (35, 9, 'Valley of the Kings', false, 'https://example.com/valley-of-the-kings.jpg'),
+    (36, 9, 'Abu Simbel Temples', false, 'https://example.com/abu-simbel.jpg'),
+    (37, 10, 'Golden Gate Bridge', true, 'https://example.com/golden-gate-bridge-answer.jpg'),
+    (38, 10, 'Bay Bridge', false, 'https://example.com/bay-bridge.jpg'),
+    (39, 10, 'Alcatraz Island', false, 'https://example.com/alcatraz.jpg'),
+    (40, 10, 'Lombard Street', false, 'https://example.com/lombard-street.jpg');

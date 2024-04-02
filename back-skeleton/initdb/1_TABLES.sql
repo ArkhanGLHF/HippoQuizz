@@ -49,6 +49,14 @@ CREATE TABLE questions (
    questionPicture TEXT not null
 );
 
+CREATE TABLE answers (
+     id SERIAL PRIMARY KEY,
+     answerText TEXT not null,
+     isCorrect boolean not null,
+     answerPicture TEXT not null,
+     questionId int not null
+);
+
 -- CREATE TABLE quizQuestion (
 --    id SERIAL PRIMARY KEY,
 --    quizId int not null,

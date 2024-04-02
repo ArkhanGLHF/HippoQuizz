@@ -15,13 +15,6 @@ public class Question {
     @Column(name = "questionPicture")
     private String questionPicture;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "quizQuestion",
-//            joinColumns = @JoinColumn(name = "quizId"),
-//            inverseJoinColumns = @JoinColumn(name = "questionId"))
-//    private List<Quiz> quizzes;
-
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "quizId")
     private Quiz quiz;
