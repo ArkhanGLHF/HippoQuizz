@@ -26,22 +26,22 @@ INSERT INTO users (id, username,email, password) VALUES ( 1, 'Mehdiabrk', 'mehdi
 INSERT INTO users (id, username,email, password) VALUES ( 2, 'Arkahn',  'hipplyte.cacheux@edu.ece.fr', 'Admin0002');
 INSERT INTO users (id, username,email, password) VALUES (  3, 'Adrien', 'adrien.mattei@edu.ece.fr', 'Admin0003');
 
--- INSERT INTO quiz (id, title, description) VALUES (1, 'Animal Quiz', 'Test your knowledge of different animals'),
--- INSERT INTO quiz (id, title, description) VALUES (2, 'Famous Landmarks Quiz', 'Identify these famous landmarks from around the world');
+INSERT INTO quiz (id, title, description) VALUES (1, 'Animal Quiz', 'Test your knowledge of different animals');
+INSERT INTO quiz (id, title, description) VALUES (2, 'Famous Landmarks Quiz', 'Identify these famous landmarks from around the world');
 
---
--- INSERT INTO questions (id, quizId, question_text, question_picture)
--- VALUES
---     (1, 1, 'What is the largest land animal?', 'https://example.com/african-elephant.jpg'),
---     (2, 1, 'Which animal is known as the "king of the jungle"?', 'https://example.com/lion.jpg'),
---     (3, 1, 'What is the fastest land animal?', 'https://example.com/cheetah.jpg'),
---     (4, 1, 'Which animal is known for its distinctive black and white stripes?', 'https://example.com/zebra.jpg'),
---     (5, 1, 'What is the national animal of Australia?', 'https://example.com/kangaroo.jpg');
---
--- INSERT INTO questions (id, quiz_id, question_text, question_picture)
--- VALUES
---     (6, 2, 'Identify this famous landmark located in Paris, France.', 'https://example.com/eiffel-tower.jpg'),
---     (7, 2, 'Which landmark is this, located in Agra, India?', 'https://example.com/taj-mahal.jpg'),
---     (8, 2, 'Recognize this iconic landmark in New York City, USA.', 'https://example.com/statue-of-liberty.jpg'),
---     (9, 2, 'What is the name of this ancient wonder located in Giza, Egypt?', 'https://example.com/great-pyramid.jpg'),
---     (10, 2, 'Identify this famous bridge located in San Francisco, USA.', 'https://example.com/golden-gate-bridge.jpg');
+
+INSERT INTO questions (id, quizId, questionText, questionPicture)
+VALUES
+    (1, 1, 'What is the largest land animal?', 'https://example.com/african-elephant.jpg'),
+    (2, 1, 'Which animal is known as the "king of the jungle"?', 'https://example.com/lion.jpg'),
+    (3, 1, 'What is the fastest land animal?', 'https://example.com/cheetah.jpg'),
+    (4, 1, 'Which animal is known for its distinctive black and white stripes?', 'https://example.com/zebra.jpg'),
+    (5, 1, 'What is the national animal of Australia?', 'https://example.com/kangaroo.jpg');
+
+INSERT INTO questions (id, quizId, questionText, questionPicture)
+VALUES
+    (6, 2, 'Identify this famous landmark located in Paris, France.', 'https://example.com/eiffel-tower.jpg'),
+    (7, 2, 'Which landmark is this, located in Agra, India?', 'https://example.com/taj-mahal.jpg'),
+    (8, 2, 'Recognize this iconic landmark in New York City, USA.', 'https://example.com/statue-of-liberty.jpg'),
+    (9, 2, 'What is the name of this ancient wonder located in Giza, Egypt?', 'https://example.com/great-pyramid.jpg'),
+    (10, 2, 'Identify this famous bridge located in San Francisco, USA.', 'https://example.com/golden-gate-bridge.jpg');
