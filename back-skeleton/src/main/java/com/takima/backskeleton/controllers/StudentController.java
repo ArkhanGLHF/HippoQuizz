@@ -5,7 +5,6 @@ import com.takima.backskeleton.models.Student;
 import com.takima.backskeleton.services.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 

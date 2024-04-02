@@ -1,13 +1,15 @@
 package com.takima.backskeleton.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.time.Instant;
 import java.util.List;
 
 @Entity
 @Table(name = "quiz")
+@NoArgsConstructor
 @Getter
 public class Quiz {
     @Id
@@ -18,36 +20,7 @@ public class Quiz {
     @Column(name = "description")
     private String description;
 
-    private Quiz(Builder builder) {
-        this.id = builder.id;
-        this.title = builder.title;
-        this.description = builder.description;
-    }
-    public Quiz() {
-    }
-
-    public static class Builder {
-        private Long id;
-        private String title;
-        private String description;
-        
-
-        public Builder id (Long id) {
-            this.id = id;
-            return this;
-        }
-
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-        public Quiz build() {
-            return new Quiz(this);
-        }
-    }
+    @OneToMany(mappedBy = "quiz")
+    @JsonIgnore
+    List<Question> questions;
 }

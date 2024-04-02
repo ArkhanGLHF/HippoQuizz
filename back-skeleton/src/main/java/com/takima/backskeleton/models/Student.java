@@ -24,6 +24,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
     private List<Course> courses;
+
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "major_id")
     private Major major;

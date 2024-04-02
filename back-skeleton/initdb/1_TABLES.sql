@@ -29,8 +29,6 @@ create table student_course
     course_id int not null
 );
 
--- Un objet en JAVA c'est une table SQL
-
 create table users (
    id SERIAL PRIMARY KEY,
    username TEXT  not null,
@@ -43,3 +41,16 @@ create table quiz (
    title TEXT  not null,
    description TEXT not null
 );
+
+CREATE TABLE questions (
+   id SERIAL PRIMARY KEY,
+   quizId int not null,
+   questionText TEXT not null,
+   questionPicture TEXT not null
+);
+
+-- CREATE TABLE quizQuestion (
+--    id SERIAL PRIMARY KEY,
+--    quizId int not null,
+--    questionId int not null
+-- );
