@@ -10,13 +10,13 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "questionText")
+    @Column(name = "questiontext")
     private String questionText;
-    @Column(name = "questionPicture")
+    @Column(name = "questionpicture")
     private String questionPicture;
 
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "quizId")
+    @JoinColumn(name = "quizid")
     private Quiz quiz;
 
 

@@ -1,0 +1,22 @@
+<p>questions works!</p>
+
+<!-- Print all the questions on the data base -->
+
+<div class="d-flex align-items-center">
+    <h1>Questions</h1>
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">questionText</th>
+      <th scope="col">questionPicture</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let question of (questions$ | async)" routerLink="/question/{{question.id}}">
+      <td>{{ question.questionText }}</td>
+      <td>{{ question.questionPicture }}</td>
+    </tr>
+    </tbody>
+  </table>
+
