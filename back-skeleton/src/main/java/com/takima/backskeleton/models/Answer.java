@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 
 @Entity
-@Table(name = "students")
+@Table(name = "answers")
 @Getter
 public class Answer {
     @Id
@@ -12,17 +12,17 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "answerText")
+    @Column(name = "answer_text")
     private String answerText;
 
     private boolean isCorrect;
 
-    @Column(name = "answerPicture")
+    @Column(name = "answer_picture")
     private String answerPicture;
 
 
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "questionId")
+    @JoinColumn(name = "question_id")
 
     private Question question;
 

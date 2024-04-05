@@ -30,7 +30,7 @@ INSERT INTO quiz (id, title, description) VALUES (1, 'Animal Quiz', 'Test your k
 INSERT INTO quiz (id, title, description) VALUES (2, 'Famous Landmarks Quiz', 'Identify these famous landmarks from around the world');
 
 
-INSERT INTO questions (id, quizId, questionText, questionPicture)
+INSERT INTO questions (id, quiz_id, question_text, question_picture)
 VALUES
     (1, 1, 'What is the largest land animal?', 'https://example.com/african-elephant.jpg'),
     (2, 1, 'Which animal is known as the "king of the jungle"?', 'https://example.com/lion.jpg'),
@@ -38,7 +38,7 @@ VALUES
     (4, 1, 'Which animal is known for its distinctive black and white stripes?', 'https://example.com/zebra.jpg'),
     (5, 1, 'What is the national animal of Australia?', 'https://example.com/kangaroo.jpg');
 
-INSERT INTO questions (id, quizId, questionText, questionPicture)
+INSERT INTO questions (id, quiz_id, question_text, question_picture)
 VALUES
     (6, 2, 'Identify this famous landmark located in Paris, France.', 'https://example.com/eiffel-tower.jpg'),
     (7, 2, 'Which landmark is this, located in Agra, India?', 'https://example.com/taj-mahal.jpg'),
@@ -47,7 +47,7 @@ VALUES
     (10, 2, 'Identify this famous bridge located in San Francisco, USA.', 'https://example.com/golden-gate-bridge.jpg');
 
 -- Insert data into the answers table for the Animal Quiz
-INSERT INTO answers (id, questionId, answerText, isCorrect, answerPicture)
+INSERT INTO answers (id, question_id, answer_text, is_correct, answer_picture)
 VALUES
     (1, 1, 'African Elephant', true, 'https://example.com/african-elephant-answer.jpg'),
     (2, 1, 'Giraffe', false, 'https://example.com/giraffe.jpg'),
@@ -71,7 +71,7 @@ VALUES
     (20, 5, 'Platypus', false, 'https://example.com/platypus.jpg');
 
 -- Insert data into the answers table for the Famous Landmarks Quiz
-INSERT INTO answers (id, questionId, answerText, isCorrect, answerPicture)
+INSERT INTO answers (id, question_id, answer_text, is_correct, answer_picture)
 VALUES
     (21, 6, 'Eiffel Tower', true, 'https://example.com/eiffel-tower-answer.jpg'),
     (22, 6, 'Arc de Triomphe', false, 'https://example.com/arc-de-triomphe.jpg'),

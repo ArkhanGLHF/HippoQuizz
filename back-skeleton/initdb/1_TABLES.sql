@@ -44,21 +44,21 @@ create table quiz (
 
 CREATE TABLE questions (
    id SERIAL PRIMARY KEY,
-   quizId int not null,
-   questionText TEXT not null,
-   questionPicture TEXT not null
+   quiz_id int not null,
+   question_text TEXT not null,
+   question_picture TEXT not null
 );
 
 CREATE TABLE answers (
      id SERIAL PRIMARY KEY,
-     answerText TEXT not null,
-     isCorrect boolean not null,
-     answerPicture TEXT not null,
-     questionId int not null
+     answer_text TEXT not null,
+     is_correct boolean not null,
+     answer_picture TEXT not null,
+     question_id int not null
 );
 
 -- CREATE TABLE quizQuestion (
 --    id SERIAL PRIMARY KEY,
---    quizId int not null,
---    questionId int not null
+--    quiz_id int not null,
+--    question_id int not null
 -- );
