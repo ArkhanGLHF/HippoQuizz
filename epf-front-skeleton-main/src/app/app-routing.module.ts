@@ -13,9 +13,9 @@ import { LoginComponent } from "login/login.component"
 import { LoginResolver } from "login/login.resolver"
 import { QuestionsComponent } from "questions/questions.component"
 import { UsersComponent } from "users/users.component"
-import { UsersResolver } from "users/users.resolver"
+//import { UsersResolver } from "users/users.resolver"
 import { UserDetailsComponent } from "users/user-details/user-details.component"
-import { UserDetailsResolver } from "users/user-details/user-details.resolver"
+import { UserNewComponent } from "users/user-new/user-new.component"
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -60,15 +60,19 @@ const routes: Routes = [
   },
   {
     path: "users",
-    component: UsersComponent,
+    component: UsersComponent/*,
     resolve: {
       users: UsersResolver,
-    },
+    },*/
   },
   {
     path: "user-details/:id",
     component: UserDetailsComponent
   },
+  {
+    path: "user-new",
+    component: UserNewComponent
+  }
 ]
 
 @NgModule({

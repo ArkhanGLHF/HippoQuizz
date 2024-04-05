@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center">
     <h1>Users</h1>
-    <a mat-raised-button color="primary" routerLink="/user-details/new">New</a>
+    <a mat-raised-button color="primary" routerLink="/user-new/">New</a>
   </div>
   <table class="table table-hover">
     <thead>
@@ -11,7 +11,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of (users$ | async)" routerLink="/user-details/{{user.id}}">
+    <tr *ngFor="let user of (user$ | async)" routerLink="/user-details/{{user.id}}">
       <td>{{ user.username }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.password}}</td>

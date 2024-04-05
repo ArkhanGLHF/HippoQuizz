@@ -21,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { QuestionsComponent } from './questions/questions.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { UserNewComponent } from './users/user-new/user-new.component';
 
 
 
@@ -37,6 +38,7 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
     QuestionsComponent,
     UsersComponent,
     UserDetailsComponent,
+    UserNewComponent,
   ],
   imports: [
     BrowserModule,
