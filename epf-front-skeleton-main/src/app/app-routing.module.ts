@@ -11,6 +11,7 @@ import { MajorStudentsResolver } from "majors/major-students/major-students.reso
 import { MajorStudentsComponent } from "majors/major-students/major-students.component"
 import { LoginComponent } from "login/login.component"
 import { LoginResolver } from "login/login.resolver"
+import { QuestionsComponent } from "questions/questions.component"
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -48,6 +49,10 @@ const routes: Routes = [
     resolve: {
       login: LoginResolver,
     },
+  },
+  {
+    path: "questions",
+    component: QuestionsComponent,
   },
 ]
 
