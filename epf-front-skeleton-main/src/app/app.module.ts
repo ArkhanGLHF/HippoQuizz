@@ -19,6 +19,8 @@ import { LoginComponent } from './login/login.component'
 import {MatCardModule} from '@angular/material/card'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { QuestionsComponent } from './questions/questions.component';
+import { UsersComponent } from './users/users.component';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
 
 
 
@@ -33,6 +35,8 @@ import { QuestionsComponent } from './questions/questions.component';
     MajorStudentsComponent,
     LoginComponent,
     QuestionsComponent,
+    UsersComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
