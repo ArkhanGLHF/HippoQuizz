@@ -12,6 +12,9 @@ import { MajorStudentsComponent } from "majors/major-students/major-students.com
 import { LoginComponent } from "login/login.component"
 import { LoginResolver } from "login/login.resolver"
 import { QuestionsComponent } from "questions/questions.component"
+import { QuizComponent } from "quiz/quiz.component"
+import { QuizDetailsComponent } from "quiz/quiz-details/quiz-details.component"
+
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -54,6 +57,14 @@ const routes: Routes = [
     path: "questions",
     component: QuestionsComponent,
   },
+  {
+    path: "quiz",
+    component: QuizComponent,
+  },
+  {
+    path: "quiz-details/:id",
+    component: QuizDetailsComponent,
+  }
 ]
 
 @NgModule({

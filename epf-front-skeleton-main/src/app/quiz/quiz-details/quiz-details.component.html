@@ -1,0 +1,27 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">{{ quiz.title }}</h1>
+        </div>
+        <div class="card-body">
+          <div class="card mb-3" *ngIf="questions$.length > 0">
+            <div class="card-header">
+              <img [src]="questions$[currentQuestionIndex].questionPicture" alt="Question Image" class="img-fluid">
+              <h3>Question {{ currentQuestionIndex + 1 }}</h3>
+            </div>
+            <div class="card-body">
+              <p>{{ questions$[currentQuestionIndex].questionText }}</p>
+              <div class="d-flex justify-content-center">
+                <!-- TO EDIT WHEN ANSWER IMPLEMENTED -->
+                <button class="btn btn-success mr-2" (click)="submitAnswer(true)">True</button>
+                <button class="btn btn-danger" (click)="submitAnswer(false)">False</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
