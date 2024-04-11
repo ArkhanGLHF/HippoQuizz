@@ -13,6 +13,7 @@ export class QuizDetailsComponent implements OnInit {
   quiz: Quiz;
   questions$: Question[] = [];
   currentQuestionIndex = 0;
+  score = 0;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.quiz = {} as Quiz;
