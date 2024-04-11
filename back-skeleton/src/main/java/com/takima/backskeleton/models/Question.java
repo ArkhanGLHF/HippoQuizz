@@ -14,6 +14,7 @@ public class Question {
     private String questionText;
     @Column(name = "question_picture")
     private String questionPicture;
+    private boolean questionAnswer;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "quiz_id")
@@ -24,6 +25,7 @@ public class Question {
         this.id = builder.id;
         this.questionText = builder.questionText;
         this.questionPicture = builder.questionPicture;
+        this.questionAnswer = builder.questionAnswer;
         this.quiz = builder.quiz;
     }
 
@@ -35,6 +37,7 @@ public class Question {
         private Long id;
         private String questionText;
         private String questionPicture;
+        private boolean questionAnswer;
         private Quiz quiz;
 
         public Builder id (Long id) {
@@ -48,6 +51,11 @@ public class Question {
         }
         public Builder questionPicture(String questionPicture) {
             this.questionPicture = questionPicture;
+            return this;
+        }
+
+        public Builder questionAnswer(boolean questionAnswer){
+            this.questionAnswer = questionAnswer;
             return this;
         }
         public Builder quiz(Quiz quiz) {
