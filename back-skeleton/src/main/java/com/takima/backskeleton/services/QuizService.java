@@ -20,6 +20,10 @@ public class QuizService {
         return quizzes;
     }
 
+    public Quiz findById(Long id) {
+        return quizDao.findById(id).orElseThrow();
+    }
+
     public List<Question> getQuestionsOfQuiz(Long id) {
         return quizDao.getAllQuestionsFromQuiz(id);
     }

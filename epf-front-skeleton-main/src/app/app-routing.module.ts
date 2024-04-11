@@ -12,8 +12,9 @@ import { MajorStudentsComponent } from "majors/major-students/major-students.com
 import { LoginComponent } from "login/login.component"
 import { LoginResolver } from "login/login.resolver"
 import { QuestionsComponent } from "questions/questions.component"
+import { QuizComponent } from "quiz/quiz.component"
+import { QuizDetailsComponent } from "quiz/quiz-details/quiz-details.component"
 import { UsersComponent } from "users/users.component"
-//import { UsersResolver } from "users/users.resolver"
 import { UserDetailsComponent } from "users/user-details/user-details.component"
 import { UserNewComponent } from "users/user-new/user-new.component"
 
@@ -59,11 +60,16 @@ const routes: Routes = [
     component: QuestionsComponent,
   },
   {
+    path: "quiz",
+    component: QuizComponent,
+  },
+  {
+    path: "quiz-details/:id",
+    component: QuizDetailsComponent,
+  },
+  {
     path: "users",
-    component: UsersComponent/*,
-    resolve: {
-      users: UsersResolver,
-    },*/
+    component: UsersComponent,
   },
   {
     path: "user-details/:id",

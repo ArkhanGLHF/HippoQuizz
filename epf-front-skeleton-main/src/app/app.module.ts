@@ -19,11 +19,11 @@ import { LoginComponent } from './login/login.component'
 import {MatCardModule} from '@angular/material/card'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { QuestionsComponent } from './questions/questions.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuizDetailsComponent } from './quiz/quiz-details/quiz-details.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserNewComponent } from './users/user-new/user-new.component';
-
-
 
 @NgModule({
   declarations: [
@@ -36,6 +36,8 @@ import { UserNewComponent } from './users/user-new/user-new.component';
     MajorStudentsComponent,
     LoginComponent,
     QuestionsComponent,
+    QuizComponent,
+    QuizDetailsComponent,
     UsersComponent,
     UserDetailsComponent,
     UserNewComponent,

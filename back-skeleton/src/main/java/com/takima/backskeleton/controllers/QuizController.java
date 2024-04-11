@@ -22,6 +22,11 @@ public class QuizController {
         return quizService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Quiz findById(@PathVariable Long id) {
+        return quizService.findById(id);
+    }
+
     @GetMapping("/{id}/questions")
     public List<Question> getQuestionsOfQuiz(@PathVariable Long id) {
         return quizService.getQuestionsOfQuiz(id);
