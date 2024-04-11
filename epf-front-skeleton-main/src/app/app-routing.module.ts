@@ -12,6 +12,10 @@ import { MajorStudentsComponent } from "majors/major-students/major-students.com
 import { LoginComponent } from "login/login.component"
 import { LoginResolver } from "login/login.resolver"
 import { QuestionsComponent } from "questions/questions.component"
+import { UsersComponent } from "users/users.component"
+//import { UsersResolver } from "users/users.resolver"
+import { UserDetailsComponent } from "users/user-details/user-details.component"
+import { UserNewComponent } from "users/user-new/user-new.component"
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -54,6 +58,21 @@ const routes: Routes = [
     path: "questions",
     component: QuestionsComponent,
   },
+  {
+    path: "users",
+    component: UsersComponent/*,
+    resolve: {
+      users: UsersResolver,
+    },*/
+  },
+  {
+    path: "user-details/:id",
+    component: UserDetailsComponent
+  },
+  {
+    path: "user-new",
+    component: UserNewComponent
+  }
 ]
 
 @NgModule({
