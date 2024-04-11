@@ -47,5 +47,14 @@ CREATE TABLE questions (
    quiz_id int not null,
    question_text TEXT not null,
    question_picture TEXT not null,
-    question_answer boolean not null
+   question_answer boolean not null
 );
+
+CREATE TABLE results (
+    id INT PRIMARY KEY,
+    user_id int not null,
+    quiz_id int not null,
+    score int not null,
+    date_completed date not null
+);
+
