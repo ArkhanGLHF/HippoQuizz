@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs"
 import { Question } from "models/question.model"
 
-// TODO Uncomment when Quiz model will be created
-// import {Quiz} from "models/quiz.model"
-
 import { HttpClient } from "@angular/common/http"
 
 @Injectable({

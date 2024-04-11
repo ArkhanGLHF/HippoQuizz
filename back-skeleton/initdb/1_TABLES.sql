@@ -46,19 +46,6 @@ CREATE TABLE questions (
    id SERIAL PRIMARY KEY,
    quiz_id int not null,
    question_text TEXT not null,
-   question_picture TEXT not null
+   question_picture TEXT not null,
+    question_answer boolean not null
 );
-
-CREATE TABLE answers (
-     id SERIAL PRIMARY KEY,
-     answer_text TEXT not null,
-     is_correct boolean not null,
-     answer_picture TEXT not null,
-     question_id int not null
-);
-
--- CREATE TABLE quizQuestion (
---    id SERIAL PRIMARY KEY,
---    quiz_id int not null,
---    question_id int not null
--- );

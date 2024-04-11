@@ -26,70 +26,64 @@ INSERT INTO users (id, username,email, password) VALUES ( 1, 'Mehdiabrk', 'mehdi
 INSERT INTO users (id, username,email, password) VALUES ( 2, 'Arkahn',  'hipplyte.cacheux@edu.ece.fr', 'Admin0002');
 INSERT INTO users (id, username,email, password) VALUES (  3, 'Adrien', 'adrien.mattei@edu.ece.fr', 'Admin0003');
 
-INSERT INTO quiz (id, title, description) VALUES (1, 'Animal Quiz', 'Test your knowledge of different animals');
-INSERT INTO quiz (id, title, description) VALUES (2, 'Famous Landmarks Quiz', 'Identify these famous landmarks from around the world');
-
-
-INSERT INTO questions (id, quiz_id, question_text, question_picture)
+INSERT INTO quiz (id, title, description)
 VALUES
-    (1, 1, 'What is the largest land animal?', 'https://example.com/african-elephant.jpg'),
-    (2, 1, 'Which animal is known as the "king of the jungle"?', 'https://example.com/lion.jpg'),
-    (3, 1, 'What is the fastest land animal?', 'https://example.com/cheetah.jpg'),
-    (4, 1, 'Which animal is known for its distinctive black and white stripes?', 'https://example.com/zebra.jpg'),
-    (5, 1, 'What is the national animal of Australia?', 'https://example.com/kangaroo.jpg');
+    (1, 'Le Règne Animal', 'Ce quiz teste vos connaissances sur les animaux'),
+    (2, 'Géographie Mondiale', 'Ce quiz évalue vos connaissances géographiques'),
+    (3, 'Faits Historiques', 'Ce quiz porte sur l''histoire mondiale'),
+    (4, 'Progrès Technologiques', 'Ce quiz évalue vos connaissances en technologie'),
+    (5, 'Santé et Bien-être', 'Ce quiz porte sur la santé et le bien-être');
 
-INSERT INTO questions (id, quiz_id, question_text, question_picture)
-VALUES
-    (6, 2, 'Identify this famous landmark located in Paris, France.', 'https://example.com/eiffel-tower.jpg'),
-    (7, 2, 'Which landmark is this, located in Agra, India?', 'https://example.com/taj-mahal.jpg'),
-    (8, 2, 'Recognize this iconic landmark in New York City, USA.', 'https://example.com/statue-of-liberty.jpg'),
-    (9, 2, 'What is the name of this ancient wonder located in Giza, Egypt?', 'https://example.com/great-pyramid.jpg'),
-    (10, 2, 'Identify this famous bridge located in San Francisco, USA.', 'https://example.com/golden-gate-bridge.jpg');
 
--- Insert data into the answers table for the Animal Quiz
-INSERT INTO answers (id, question_id, answer_text, is_correct, answer_picture)
+INSERT INTO questions (id, quiz_id, question_text, question_picture, question_answer)
 VALUES
-    (1, 1, 'African Elephant', true, 'https://example.com/african-elephant-answer.jpg'),
-    (2, 1, 'Giraffe', false, 'https://example.com/giraffe.jpg'),
-    (3, 1, 'Hippopotamus', false, 'https://example.com/hippo.jpg'),
-    (4, 1, 'Rhinoceros', false, 'https://example.com/rhino.jpg'),
-    (5, 2, 'Lion', true, 'https://example.com/lion-answer.jpg'),
-    (6, 2, 'Tiger', false, 'https://example.com/tiger.jpg'),
-    (7, 2, 'Leopard', false, 'https://example.com/leopard.jpg'),
-    (8, 2, 'Cheetah', false, 'https://example.com/cheetah.jpg'),
-    (9, 3, 'Cheetah', true, 'https://example.com/cheetah-answer.jpg'),
-    (10, 3, 'Gazelle', false, 'https://example.com/gazelle.jpg'),
-    (11, 3, 'Wildebeest', false, 'https://example.com/wildebeest.jpg'),
-    (12, 3, 'Ostrich', false, 'https://example.com/ostrich.jpg'),
-    (13, 4, 'Zebra', true, 'https://example.com/zebra-answer.jpg'),
-    (14, 4, 'Giraffe', false, 'https://example.com/giraffe.jpg'),
-    (15, 4, 'Okapi', false, 'https://example.com/okapi.jpg'),
-    (16, 4, 'Antelope', false, 'https://example.com/antelope.jpg'),
-    (17, 5, 'Kangaroo', true, 'https://example.com/kangaroo-answer.jpg'),
-    (18, 5, 'Koala', false, 'https://example.com/koala.jpg'),
-    (19, 5, 'Emu', false, 'https://example.com/emu.jpg'),
-    (20, 5, 'Platypus', false, 'https://example.com/platypus.jpg');
-
--- Insert data into the answers table for the Famous Landmarks Quiz
-INSERT INTO answers (id, question_id, answer_text, is_correct, answer_picture)
-VALUES
-    (21, 6, 'Eiffel Tower', true, 'https://example.com/eiffel-tower-answer.jpg'),
-    (22, 6, 'Arc de Triomphe', false, 'https://example.com/arc-de-triomphe.jpg'),
-    (23, 6, 'Notre-Dame Cathedral', false, 'https://example.com/notre-dame.jpg'),
-    (24, 6, 'Louvre Museum', false, 'https://example.com/louvre.jpg'),
-    (25, 7, 'Taj Mahal', true, 'https://example.com/taj-mahal-answer.jpg'),
-    (26, 7, 'Red Fort', false, 'https://example.com/red-fort.jpg'),
-    (27, 7, 'Qutub Minar', false, 'https://example.com/qutub-minar.jpg'),
-    (28, 7, 'Hawa Mahal', false, 'https://example.com/hawa-mahal.jpg'),
-    (29, 8, 'Statue of Liberty', true, 'https://example.com/statue-of-liberty-answer.jpg'),
-    (30, 8, 'Empire State Building', false, 'https://example.com/empire-state-building.jpg'),
-    (31, 8, 'Central Park', false, 'https://example.com/central-park.jpg'),
-    (32, 8, 'Brooklyn Bridge', false, 'https://example.com/brooklyn-bridge.jpg'),
-    (33, 9, 'Great Pyramid of Giza', true, 'https://example.com/great-pyramid-answer.jpg'),
-    (34, 9, 'Sphinx', false, 'https://example.com/sphinx.jpg'),
-    (35, 9, 'Valley of the Kings', false, 'https://example.com/valley-of-the-kings.jpg'),
-    (36, 9, 'Abu Simbel Temples', false, 'https://example.com/abu-simbel.jpg'),
-    (37, 10, 'Golden Gate Bridge', true, 'https://example.com/golden-gate-bridge-answer.jpg'),
-    (38, 10, 'Bay Bridge', false, 'https://example.com/bay-bridge.jpg'),
-    (39, 10, 'Alcatraz Island', false, 'https://example.com/alcatraz.jpg'),
-    (40, 10, 'Lombard Street', false, 'https://example.com/lombard-street.jpg');
+    (1, 1, 'L''éléphant est le plus gros animal terrestre.', '', TRUE),
+    (2, 1, 'Le guépard est l''animal le plus rapide au monde.', '', TRUE),
+    (3, 1, 'Le mamba noir est l''animal le plus venimeux.', '', TRUE),
+    (4, 1, 'Les baleines sont des mammifères.', '', TRUE),
+    (5, 1, 'Les araignées ont 8 pattes.', '', TRUE),
+    (6, 1, 'Les poissons respirent par les branchies.', '', TRUE),
+    (7, 1, 'Les lions vivent en groupe appelé "troupeau".', '', TRUE),
+    (8, 1, 'Les serpents sont ovipares.', '', TRUE),
+    (9, 1, 'Les koalas sont des mammifères.', '', TRUE),
+    (10, 1, 'Les papillons ont 6 pattes.', '', FALSE),
+    (11, 2, 'Canberra est la capitale de l''Australie.', '', TRUE),
+    (12, 2, 'Le Pacifique est le plus grand océan du monde.', '', TRUE),
+    (13, 2, 'L''Everest est le plus haut sommet du monde.', '', TRUE),
+    (14, 2, 'La Chine est le pays le plus peuplé du monde.', '', TRUE),
+    (15, 2, 'Le Nil est le plus long fleuve du monde.', '', TRUE),
+    (16, 2, 'L''Antarctique est un continent.', '', TRUE),
+    (17, 2, 'Le Sahara est le plus grand désert du monde.', '', TRUE),
+    (18, 2, 'Le Japon est une île.', '', TRUE),
+    (19, 2, 'La Méditerranée est un océan.', '', FALSE),
+    (20, 2, 'Le Canada est le plus grand pays du monde en superficie.', '', FALSE),
+    (21, 3, 'La Première Guerre mondiale a eu lieu en 1914.', '', TRUE),
+    (22, 3, 'George Washington a été le premier président des États-Unis.', '', TRUE),
+    (23, 3, 'La Révolution française a eu lieu en 1789.', '', TRUE),
+    (24, 3, 'Napoléon Bonaparte a été empereur de France.', '', TRUE),
+    (25, 3, 'La Seconde Guerre mondiale a duré de 1939 à 1945.', '', TRUE),
+    (26, 3, 'Christophe Colomb a découvert l''Amérique en 1492.', '', TRUE),
+    (27, 3, 'La Chute de l''Empire romain d''Occident a eu lieu en 476.', '', TRUE),
+    (28, 3, 'La Guerre de Sécession s''est déroulée aux États-Unis.', '', TRUE),
+    (29, 3, 'La Révolution industrielle a commencé au 18ème siècle.', '', TRUE),
+    (30, 3, 'La Guerre froide a opposé les États-Unis et l''URSS.', '', TRUE),
+    (31, 4, 'L''ordinateur a été inventé dans les années 1970.', '', FALSE),
+    (32, 4, 'Internet a été créé par Tim Berners-Lee.', '', TRUE),
+    (33, 4, 'Le premier smartphone a été lancé par Apple.', '', TRUE),
+    (34, 4, 'Le système d''exploitation Windows a été développé par Microsoft.', '', TRUE),
+    (35, 4, 'Le langage de programmation Python a été créé en 1991.', '', TRUE),
+    (36, 4, 'Le disque dur a remplacé les disquettes.', '', TRUE),
+    (37, 4, 'Le GPS utilise des satellites pour localiser les utilisateurs.', '', TRUE),
+    (38, 4, 'La 5G est une technologie plus rapide que la 4G.', '', TRUE),
+    (39, 4, 'L''intelligence artificielle peut prendre des décisions autonomes.', '', TRUE),
+    (40, 4, 'Les réseaux sociaux ont été inventés dans les années 2000.', '', TRUE),
+    (41, 5, 'Le cœur est un organe vital.', '', TRUE),
+    (42, 5, 'Le paludisme est une maladie causée par un virus.', '', TRUE),
+    (43, 5, 'Le cancer est une maladie non contagieuse.', '', TRUE),
+    (44, 5, 'Le vaccin protège contre les maladies infectieuses.', '', TRUE),
+    (45, 5, 'Le diabète est une maladie chronique.', '', TRUE),
+    (46, 5, 'Le sommeil est important pour la santé.', '', TRUE),
+    (47, 5, 'L''exercice physique n''a pas d''impact sur la santé.', '', FALSE),
+    (48, 5, 'L''hypertension artérielle est un problème cardiaque.', '', TRUE),
+    (49, 5, 'La grippe est causée par une bactérie.', '', FALSE),
+    (50, 5, 'Une alimentation équilibrée est bénéfique pour la santé.', '', TRUE);

@@ -28,8 +28,8 @@ public class QuestionController {
     }
 
     @PostMapping("")
-    public void addQuestion(@RequestBody QuestionDto questiontDto) {
-        questionService.addQuestion(questiontDto);
+    public void addQuestion(@RequestBody QuestionDto questionDto) {
+        questionService.addQuestion(questionDto);
     }
 
     @PostMapping("/{id}")
