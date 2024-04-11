@@ -14,7 +14,9 @@ import { LoginResolver } from "login/login.resolver"
 import { QuestionsComponent } from "questions/questions.component"
 import { QuizComponent } from "quiz/quiz.component"
 import { QuizDetailsComponent } from "quiz/quiz-details/quiz-details.component"
-
+import { UsersComponent } from "users/users.component"
+import { UserDetailsComponent } from "users/user-details/user-details.component"
+import { UserNewComponent } from "users/user-new/user-new.component"
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -64,6 +66,18 @@ const routes: Routes = [
   {
     path: "quiz-details/:id",
     component: QuizDetailsComponent,
+  },
+  {
+    path: "users",
+    component: UsersComponent,
+  },
+  {
+    path: "user-details/:id",
+    component: UserDetailsComponent
+  },
+  {
+    path: "user-new",
+    component: UserNewComponent
   }
 ]
 
