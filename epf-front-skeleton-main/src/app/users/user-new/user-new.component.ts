@@ -27,8 +27,4 @@ export class UserNewComponent {
       this.router.navigate(["users"])
     })
     }
-
-    updatePassword($event: string, user: User) {
-      user.password = $event
-    }
 }
