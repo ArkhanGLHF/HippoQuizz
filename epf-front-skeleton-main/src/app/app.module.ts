@@ -24,6 +24,7 @@ import { QuizDetailsComponent } from './quiz/quiz-details/quiz-details.component
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserNewComponent } from './users/user-new/user-new.component';
+import { QuizNewComponent } from './quiz/quiz-new/quiz-new.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { UserNewComponent } from './users/user-new/user-new.component';
     UsersComponent,
     UserDetailsComponent,
     UserNewComponent,
+    QuizNewComponent,
   ],
   imports: [
     BrowserModule,
