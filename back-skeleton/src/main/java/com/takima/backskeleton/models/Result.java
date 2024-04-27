@@ -2,12 +2,12 @@ package com.takima.backskeleton.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-
 import java.util.Date;
 
+@Getter
 @Entity
 @Table(name = "results")
-@Getter
+
 public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

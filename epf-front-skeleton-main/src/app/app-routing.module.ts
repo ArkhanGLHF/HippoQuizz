@@ -17,6 +17,8 @@ import { QuizDetailsComponent } from "quiz/quiz-details/quiz-details.component"
 import { UsersComponent } from "users/users.component"
 import { UserDetailsComponent } from "users/user-details/user-details.component"
 import { UserNewComponent } from "users/user-new/user-new.component"
+import { ResultsComponent } from "results/results.component"
+import { ResultDetailsComponent } from "results/result-details/result-details.component"
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -73,11 +75,19 @@ const routes: Routes = [
   },
   {
     path: "user-details/:id",
-    component: UserDetailsComponent
+    component: UserDetailsComponent,
   },
   {
     path: "user-new",
-    component: UserNewComponent
+    component: UserNewComponent,
+  },
+  {
+    path: "results",
+    component: ResultsComponent,
+  },
+  {
+    path: "result-details/:id",
+    component: ResultDetailsComponent,
   }
 ]
 

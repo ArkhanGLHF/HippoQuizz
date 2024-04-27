@@ -2,7 +2,6 @@ package com.takima.backskeleton.services;
 
 
 import com.takima.backskeleton.DAO.ResultDao;
-import com.takima.backskeleton.DAO.ResultDao;
 import com.takima.backskeleton.DTO.ResultDto;
 import com.takima.backskeleton.DTO.ResultMapper;
 import com.takima.backskeleton.models.Result;
@@ -22,9 +21,9 @@ public class ResultService {
 
     public List<Result> findAll() {
         Iterable<Result> it = resultDao.findAll();
-        List <Result> users = new ArrayList<>();
-        it.forEach(users::add);
-        return users ;
+        List <Result> results = new ArrayList<>();
+        it.forEach(results::add);
+        return results;
     }
 
     public Result getById(Long id) {

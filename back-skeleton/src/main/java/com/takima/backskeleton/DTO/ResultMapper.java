@@ -1,6 +1,5 @@
 package com.takima.backskeleton.DTO;
 
-import com.takima.backskeleton.models.Question;
 import com.takima.backskeleton.models.Result;
 
 import java.io.IOException;

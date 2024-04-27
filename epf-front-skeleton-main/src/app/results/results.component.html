@@ -1,0 +1,27 @@
+<div class="d-flex align-items-center">
+    <h1>Results</h1>
+    <!-- <a mat-raised-button color="primary" routerLink="/user-new/">New</a> -->
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Score (/10)</th>
+      <th scope="col">Completion Date</th>
+      <th scope="col">Username</th>
+      <th scope="col">Quizz Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let result of (result$ | async)" routerLink="/result-details/{{result.id}}">
+      <td>{{ result.score }}</td>
+      <td>{{ result.dateCompleted }}</td>
+      <td>{{ result.user.username}}</td>
+      <td>{{ result.quiz.title}}</td>
+      <td>
+        <button mat-icon-button color="warn" (click)="deleteResult($event, result)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>

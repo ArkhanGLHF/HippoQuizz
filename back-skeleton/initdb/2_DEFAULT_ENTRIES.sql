@@ -87,3 +87,14 @@ VALUES
     (48, 5, 'L''hypertension artérielle est un problème cardiaque.', '', TRUE),
     (49, 5, 'La grippe est causée par une bactérie.', '', FALSE),
     (50, 5, 'Une alimentation équilibrée est bénéfique pour la santé.', '', TRUE);
+
+
+INSERT INTO results (id, user_id, quiz_id, score, date_completed)
+VALUES
+    (1, 1, 1, 8, '2024-04-27'),
+    (2, 2, 2, 7, '2024-04-26'),
+    (3, 3, 3, 9, '2024-04-25'),
+    (4, 1, 4, 8, '2024-04-24'),
+    (5, 2, 5, 9, '2024-04-23');
+
+

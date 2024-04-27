@@ -13,7 +13,7 @@ export class UsersComponent{
   // 
   // users$: Observable<User[]> = this._route.data.pipe(map((data) => data["users"]))
 
-  constructor(private _route: ActivatedRoute, private userService: UserService, private router: Router,) {
+  constructor(private _route: ActivatedRoute, private userService: UserService, private router: Router) {
   }
 
   // Without Resolver
@@ -22,6 +22,5 @@ export class UsersComponent{
   deleteUser(event: any, user: User) {
     event.stopPropagation()
     
-    this.userService.delete(user).subscribe(() => this.router.navigate(["users"])).add(() => window.location.reload())
-  }
+    this.userService.delete(user).subscribe(() => this.router.navigate(["users"])).add(() => window.location.reload())  }
 }

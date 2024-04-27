@@ -14,5 +14,7 @@ export class NavbarComponent {
     this.links.push({ name: "Majors", href: "majors" })
     this.links.push({ name: "Login", href: "login" })
     this.links.push({ name: "Users", href: "users" })
+    this.links.push({ name: "Questions", href: "questions" })
+    this.links.push({ name: "Results", href: "results" })
   }
 }

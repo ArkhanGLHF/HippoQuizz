@@ -1,0 +1,46 @@
+<ng-container *ngIf="result$ | async; let result">
+    <h1>Result Details</h1>
+    <form (ngSubmit)="save(result)" #resultForm="ngForm">
+      <div class="form-group">
+        <label for="score">Score (/10)</label>
+        <input type="text" class="form-control" id="score"
+               required
+               [(ngModel)]="result.score" name="score"
+               #score="ngModel">
+        <div [hidden]="score.valid || score.pristine"
+             class="alert alert-danger">
+          Score is required
+        </div>
+      </div>
+  
+      <!-- <div class="form-group">
+        <label for="dateCompleted">Completion Date (yyyy-mm-dd)</label>
+        <input type="text" class="form-control" id="dateCompleted"
+               required
+               [(ngModel)]="result.dateCompleted" name="dateCompleted"
+               #dateCompleted="ngModel">
+        <div [hidden]="dateCompleted.valid || dateCompleted.pristine"
+             class="alert alert-danger">
+          Completion Date is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="password"
+               required
+               [(ngModel)]="result.password" name="password"
+               #password="ngModel">
+        <div [hidden]="password.valid || password.pristine"
+             class="alert alert-danger">
+          Password is required
+        </div>
+      </div> -->
+    
+      <button type="submit" mat-raised-button color="primary" [disabled]="!resultForm.form.valid">Save</button>
+    </form>
+  
+  </ng-container>
+  
+  
+  
