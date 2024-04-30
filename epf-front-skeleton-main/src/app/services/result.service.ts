@@ -33,5 +33,4 @@ export class ResultService {
   delete(result: Result) {
     return this.http.delete(`${this.resultsUrl}/${result.id}`)
   }
-
 }

@@ -21,6 +21,6 @@ export class UsersComponent{
 
   deleteUser(event: any, user: User) {
     event.stopPropagation()
-    
-    this.userService.delete(user).subscribe(() => this.router.navigate(["users"])).add(() => window.location.reload())  }
+    this.userService.delete(user).subscribe(() => this.router.navigate(["users"])).add(() => window.location.reload())  
+  }
 }

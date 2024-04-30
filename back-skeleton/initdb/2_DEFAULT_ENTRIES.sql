@@ -26,6 +26,7 @@ INSERT INTO users (id, username,email, password) VALUES ( 1, 'Mehdiabrk', 'mehdi
 INSERT INTO users (id, username,email, password) VALUES ( 2, 'Arkahn',  'hipplyte.cacheux@edu.ece.fr', 'Admin0002');
 INSERT INTO users (id, username,email, password) VALUES (  3, 'Adrien', 'adrien.mattei@edu.ece.fr', 'Admin0003');
 
+
 INSERT INTO quiz (id, title, description)
 VALUES
     (1, 'Le Règne Animal', 'Ce quiz teste vos connaissances sur les animaux'),
@@ -88,7 +89,6 @@ VALUES
     (49, 5, 'La grippe est causée par une bactérie.', '', FALSE),
     (50, 5, 'Une alimentation équilibrée est bénéfique pour la santé.', '', TRUE);
 
-
 INSERT INTO results (id, user_id, quiz_id, score, date_completed)
 VALUES
     (1, 1, 1, 8, '2024-04-27'),
@@ -97,4 +97,11 @@ VALUES
     (4, 1, 4, 8, '2024-04-24'),
     (5, 2, 5, 9, '2024-04-23');
 
+INSERT INTO users (id, username,email, password) VALUES (  4, 'test', 'test@edu.ece.fr', 'test');
+
+INSERT INTO results (id, user_id, quiz_id, score, date_completed)
+VALUES
+    (6, 4, 3, 9, '2024-04-25'),
+    (7, 4, 4, 8, '2024-04-24'),
+    (8, 4, 5, 9, '2024-04-23');
 

@@ -46,7 +46,6 @@ public class UserService {
         } catch (IOException e) {
             throw new RuntimeException("Error with User image", e);
         }
-
         userDao.save(user);
     }
 

@@ -25,16 +25,8 @@ export class ResultDetailsComponent {
   save(result: Result) {
     const id = this._route.snapshot.params["id"]
 
-    if (id == "new") {
-      this.resultService.create(result).subscribe(() => {
-        this.router.navigate(["results"])
-      })
-    } else {
-      this.resultService.update(id, result).subscribe(() => {
-        this.router.navigate(["results"])
-      })
-    }
-  }
-
-   
+    this.resultService.update(id, result).subscribe(() => {
+    this.router.navigate(["results"])
+    })
+  } 
 }

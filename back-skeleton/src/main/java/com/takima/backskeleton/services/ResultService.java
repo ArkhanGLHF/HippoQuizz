@@ -30,9 +30,38 @@ public class ResultService {
         return resultDao.findById(id).orElseThrow();
     }
 
+    /***
+     * Method that retrieves the results held by a specific user.
+     * @param id : The ID of the user whose results we want to retrieve.
+     * @return A list containing the results held by the user with the given ID.
+     */
+    public List<Result> findByUserId(Long id){
+        Iterable<Result> allResults = resultDao.findAll();
+        List <Result> results = new ArrayList<>();
+        allResults.forEach(r -> {
+            if (r.getUser() != null && r.getUser().getId().equals(id)) {
+                results.add(r);
+            }
+        });
+        return results;
+    }
+
     @Transactional
     public void deleteById(Long id) {
         resultDao.deleteById(id);
+    }
+
+    /***
+     * Method that deletes the results held by a specific user.
+     * @param id The ID of the user whose results we want to delete.
+     */
+    @Transactional
+    public  void deleteByUserId(Long id){
+        List<Result> userResults = findByUserId(id);
+        for (Result r : userResults){
+            Long resultId = r.getId();
+            resultDao.deleteById(resultId);
+        }
     }
 
     @Transactional
@@ -59,4 +88,5 @@ public class ResultService {
         }
         resultDao.save(result);
     }
+
 }

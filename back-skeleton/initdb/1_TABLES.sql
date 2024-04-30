@@ -58,3 +58,4 @@ CREATE TABLE results (
     date_completed date not null
 );
 
+DROP TABLE results;

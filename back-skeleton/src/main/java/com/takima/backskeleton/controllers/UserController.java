@@ -7,6 +7,7 @@ package com.takima.backskeleton.controllers;
 
 import com.takima.backskeleton.DTO.UserDto;
 import com.takima.backskeleton.models.User;
+import com.takima.backskeleton.services.ResultService;
 import com.takima.backskeleton.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+    private final ResultService resultService;
+
     @GetMapping("") // URL MAPPING  => localhost:8080/users
     public List<User> listUsers() { return userService.findAll(); }
 
@@ -29,6 +32,7 @@ public class UserController {
 
     @DeleteMapping("/{id}") // URL EXTENSION => localhost:8080/users/{id}
     public void deleteUser(@PathVariable Long id) {
+        resultService.deleteByUserId(id);
         userService.deleteById(id);
     }
 
