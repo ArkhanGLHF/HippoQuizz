@@ -14,10 +14,14 @@ import { LoginResolver } from "login/login.resolver"
 import { QuestionsComponent } from "questions/questions.component"
 import { QuizComponent } from "quiz/quiz.component"
 import { QuizDetailsComponent } from "quiz/quiz-details/quiz-details.component"
+import { QuizConfigurationComponent } from "quiz/quiz-configuration/quiz-configuration.component"
+import { QuizConfigurationDetailsComponent } from "quiz/quiz-configuration/quiz-configuration-details/quiz-configuration-details.component"
+import { QuizConfigurationNewComponent } from "quiz/quiz-configuration/quiz-configuration-new/quiz-configuration-new.component"
 import { UsersComponent } from "users/users.component"
 import { UserDetailsComponent } from "users/user-details/user-details.component"
 import { UserNewComponent } from "users/user-new/user-new.component"
-import { QuizNewComponent } from "quiz/quiz-new/quiz-new.component"
+
+import { QuestionDetailsComponent } from "questions/question-details/question-details.component"
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -61,12 +65,28 @@ const routes: Routes = [
     component: QuestionsComponent,
   },
   {
+    path: "question-details/:id",
+    component: QuestionDetailsComponent,
+  },
+  {
     path: "quiz",
     component: QuizComponent,
   },
   {
     path: "quiz-details/:id",
     component: QuizDetailsComponent,
+  },
+  {
+    path: "quiz-configuration",
+    component: QuizConfigurationComponent
+  },
+  {
+    path: "quiz-configuration-details/:id",
+    component: QuizConfigurationDetailsComponent
+  },
+  {
+    path: "quiz-configuration-new",
+    component: QuizConfigurationNewComponent
   },
   {
     path: "users",
@@ -79,11 +99,7 @@ const routes: Routes = [
   {
     path: "user-new",
     component: UserNewComponent
-  },
-  {
-    path: "quiz-new",
-    component: QuizNewComponent
-  },
+  }
 ]
 
 @NgModule({

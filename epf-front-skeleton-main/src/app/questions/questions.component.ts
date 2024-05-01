@@ -18,7 +18,7 @@ export class QuestionsComponent {
 
   deleteQuestion(event: any, question: Question) {
     event.stopPropagation()
-    this.questionService.delete(question).subscribe(() => this.router.navigate(["questions"]))
+    this.questionService.delete(question).subscribe(() => this.router.navigate(["questions"])).add(() => window.location.reload())
   }
 
 }

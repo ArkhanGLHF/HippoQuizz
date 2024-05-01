@@ -19,12 +19,15 @@ import { LoginComponent } from './login/login.component'
 import {MatCardModule} from '@angular/material/card'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { QuestionsComponent } from './questions/questions.component';
+import { QuestionDetailsComponent } from './questions/question-details/question-details.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizDetailsComponent } from './quiz/quiz-details/quiz-details.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserNewComponent } from './users/user-new/user-new.component';
-import { QuizNewComponent } from './quiz/quiz-new/quiz-new.component';
+import { QuizConfigurationComponent } from "quiz/quiz-configuration/quiz-configuration.component"
+import { QuizConfigurationDetailsComponent } from "quiz/quiz-configuration/quiz-configuration-details/quiz-configuration-details.component"
+import { QuizConfigurationNewComponent } from "quiz/quiz-configuration/quiz-configuration-new/quiz-configuration-new.component"
 
 @NgModule({
   declarations: [
@@ -37,12 +40,15 @@ import { QuizNewComponent } from './quiz/quiz-new/quiz-new.component';
     MajorStudentsComponent,
     LoginComponent,
     QuestionsComponent,
+    QuestionDetailsComponent,
     QuizComponent,
     QuizDetailsComponent,
     UsersComponent,
     UserDetailsComponent,
     UserNewComponent,
-    QuizNewComponent,
+    QuizConfigurationComponent,
+    QuizConfigurationDetailsComponent,
+    QuizConfigurationNewComponent,
   ],
   imports: [
     BrowserModule,

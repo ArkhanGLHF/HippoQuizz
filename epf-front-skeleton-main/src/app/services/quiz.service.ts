@@ -27,15 +27,15 @@ import { Question } from "models/question.model"
       }
 
     update(id: number, quiz: Quiz): Observable<Quiz> {
-        return this.http.post<Quiz>(`${this.quizUrl}/${id}`, quiz)
+        return this.http.post<Quiz>(`${this.quizUrl}-configuration/${id}`, quiz)
       }
     
     create(quiz: Quiz): Observable<Quiz> {
-        return this.http.post<Quiz>(this.quizUrl, quiz)
+        return this.http.post<Quiz>(this.quizUrl+`-configuration-new`, quiz)
     }
     
     delete(quiz: Quiz) {
-        return this.http.delete(`${this.quizUrl}/${quiz.id}`)
+        return this.http.delete(`${this.quizUrl}-configuration/${quiz.id}`)
     }
 
 }

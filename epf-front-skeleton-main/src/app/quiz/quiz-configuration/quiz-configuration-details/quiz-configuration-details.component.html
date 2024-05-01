@@ -1,0 +1,33 @@
+<ng-container *ngIf="quiz$ | async; let quiz">
+  <h1>Quiz details</h1>
+  <form (ngSubmit)="save(quiz)" #quizDetailsForm="ngForm">
+    <div class="form-group">
+      <label for="title">Quiz title</label>
+      <input type="text" class="form-control" id="title"
+             required
+             [(ngModel)]="quiz.title" name="title"
+             #title="ngModel">
+      <div [hidden]="title.valid || title.pristine"
+           class="alert alert-danger">
+        Quiz title is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Quiz description</label>
+      <input type="text" class="form-control" id="description"
+             required
+             [(ngModel)]="quiz.description" name="description"
+             #description="ngModel">
+      <div [hidden]="description.valid || description.pristine"
+           class="alert alert-danger">
+        Quiz description is required
+      </div>
+    </div>
+  
+    <button type="submit" mat-raised-button color="primary" [disabled]="!quizDetailsForm.form.valid">Save</button>
+  </form>
+
+</ng-container>
+
+

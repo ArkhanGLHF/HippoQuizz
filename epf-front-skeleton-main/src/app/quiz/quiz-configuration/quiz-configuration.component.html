@@ -1,0 +1,24 @@
+<div class="d-flex align-items-center">
+    <h1>All the quizzes</h1>
+    <a mat-raised-button color="primary" routerLink="/quiz-configuration-new/">New</a>
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Quiz' title</th>
+      <th scope="col">Quiz' description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let quiz of (quiz$ | async)" routerLink="/quiz-configuration-details/{{quiz.id}}">
+      <td>{{ quiz.title }}</td>
+      <td>{{ quiz.description }}</td>
+      <td>
+        <button mat-icon-button color="warn" (click)="deleteQuiz($event, quiz)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  
