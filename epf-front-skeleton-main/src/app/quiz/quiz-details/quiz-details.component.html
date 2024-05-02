@@ -2,24 +2,33 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
+        <!-- Card Header-->
         <div class="card-header">
           <h1 class="card-title">{{ quiz.title }}</h1>
         </div>
+        <!-- Card Body-->
         <div class="card-body">
           <div class="card mb-3" *ngIf="questions$.length > 0">
+            <!-- Question Header -->
             <div class="card-header">
-              <img [src]="questions$[currentQuestionIndex].questionPicture" alt="Question Image" class="img-fluid">
-              <h3>Question {{ currentQuestionIndex + 1 }}</h3>
+              <!-- questions$[currentQuestionIndex].questionPicture -->
+              <img [src]="getQuestionImageSrc()" alt="Question Image" class="img-fluid">
             </div>
+            <!-- Question Body -->
             <div class="card-body">
-              <p>{{ questions$[currentQuestionIndex].questionText }}</p>
-              <div class="d-flex justify-content-center">
-                <!-- TO EDIT WHEN ANSWER IMPLEMENTED -->
-                <button class="btn btn-success mr-2" (click)="submitAnswer(true)">True</button>
-                <button class="btn btn-danger" (click)="submitAnswer(false)">False</button>
+              <p id="questionText">{{ questions$[currentQuestionIndex].questionText }}</p>
+              <p [ngClass]="resultTextColor" *ngIf="showQuestionResult"> {{ resultText }} </p>
+              <div class="d-flex justify-content-center" *ngIf="showAnswerButton">
+                <button class="btn btn-success mr-2" (click)="submitAnswer(true)">Vrai</button>
+                <button class="btn btn-danger" (click)="submitAnswer(false)">Faux</button>
               </div>
             </div>
           </div>
+          <!-- Next Question Button -->
+          <div *ngIf="showNextButton">
+            <button class="btn btn-primary"  (click)="goToNextQuestion()">Question suivante</button>
+          </div>
+          <p> Score : {{ score }} / 10 </p>
         </div>
       </div>
     </div>
