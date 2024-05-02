@@ -50,6 +50,8 @@ CREATE TABLE questions (
    question_answer boolean not null
 );
 
+DROP TABLE results;
+
 CREATE TABLE results (
     id INT PRIMARY KEY,
     user_id int not null,
@@ -58,4 +60,4 @@ CREATE TABLE results (
     date_completed date not null
 );
 
-DROP TABLE results;
+

@@ -89,6 +89,7 @@ VALUES
     (49, 5, 'La grippe est causée par une bactérie.', '', FALSE),
     (50, 5, 'Une alimentation équilibrée est bénéfique pour la santé.', '', TRUE);
 
+
 INSERT INTO results (id, user_id, quiz_id, score, date_completed)
 VALUES
     (1, 1, 1, 8, '2024-04-27'),
