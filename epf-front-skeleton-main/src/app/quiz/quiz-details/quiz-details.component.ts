@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { QuizService } from 'services/quiz.service';
 import { Quiz } from 'models/quiz.model';
 import { Question } from 'models/question.model';
+import { Result } from 'models/result.model';
+import { ResultService } from 'services/result.service';
+import { User } from 'models/user.model';
+import { UserService } from 'services/user.service';
 
 @Component({
   selector: 'epf-quiz-details',
@@ -11,18 +15,24 @@ import { Question } from 'models/question.model';
 })
 export class QuizDetailsComponent implements OnInit {
   quiz: Quiz;
+  user: User;
+  result: Result;
   questions$: Question[] = [];
   currentQuestionIndex = 0;
-  score = 0;
+  score= 0;
   showNextButton = false;
   showAnswerButton = true;
   showQuestionResult = true;
   showResultText = false;
   resultText = "";
   resultTextColor = "";
+  showResult = false;
+  showQuestions = true;
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService, private resultService: ResultService, private userService: UserService) {
     this.quiz = {} as Quiz;
+    this.user = {} as User;
+    this.result = {} as Result;
   }
 
   ngOnInit() {
@@ -48,6 +58,15 @@ export class QuizDetailsComponent implements OnInit {
         }
       );
     }
+    // 
+    this.userService.findById(2).subscribe(
+      (user) => {
+        this.user = user;
+      },
+      (error) => {
+        console.error('Error fetching user:', error);
+      }
+    );
   }
 
   submitAnswer(answer: boolean) {
@@ -76,7 +95,30 @@ export class QuizDetailsComponent implements OnInit {
       this.showNextButton = false;
       this.showAnswerButton = true;
       this.resultTextColor = "";
+    } else{
+      // Affichage du résultat et du classement
+      this.showResult = true;
+      this.showQuestions = false;
     }
+  }
+
+  saveResult(){
+    // Création du résultat
+    this.result.score = this.score;
+    this.result.dateCompleted = new Date();
+    this.result.user = this.user;
+    this.result.quiz = this.quiz;
+    
+
+    // Enregistrement du résultat en utilisant ResultService
+    this.resultService.create(this.result).subscribe(
+      (result) => {
+        console.log('Result saved:', result);
+      },
+      (error) => {
+        console.error('Error saving result:', error);
+      }
+    );
   }
 
   getQuestionImageSrc(){

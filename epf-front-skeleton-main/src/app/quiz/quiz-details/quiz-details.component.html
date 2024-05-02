@@ -7,7 +7,7 @@
           <h1 class="card-title">{{ quiz.title }}</h1>
         </div>
         <!-- Card Body-->
-        <div class="card-body">
+        <div class="card-body" *ngIf="showQuestions">
           <div class="card mb-3" *ngIf="questions$.length > 0">
             <!-- Question Header -->
             <div class="card-header">
@@ -29,6 +29,21 @@
             <button class="btn btn-primary"  (click)="goToNextQuestion()">Question suivante</button>
           </div>
           <p> Score : {{ score }} / 10 </p>
+        </div>
+        <div class="result" *ngIf="showResult">
+          <div class="card mb-3">
+            <!-- AFFICHAGE DU CLASSEMENT-->
+            <div class="card-header">
+            
+            </div>
+            <!-- SAUVEGARDE DU RESULTAT-->
+            <div class=""card-body>
+              <p>Vous avez obtenu {{ score }} / 10</p>
+              <button class="btn btn-primary"  (click)="saveResult()">Sauvegarder</button>
+
+
+            </div>
+          </div>
         </div>
       </div>
     </div>

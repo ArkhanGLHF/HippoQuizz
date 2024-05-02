@@ -3,7 +3,7 @@ import { User } from "./user.model"
 
 export interface Result {
   id?: bigint
-  score: bigint
+  score: number
   dateCompleted: Date
   user : User
   quiz: Quiz
