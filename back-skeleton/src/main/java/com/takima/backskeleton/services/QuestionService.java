@@ -35,9 +35,38 @@ public class QuestionService {
         return questionDao.getAllQuestionsFromQuiz(id);
     }
 
+    /***
+     * Method that retrieves the questions of a specific quiz.
+     * @param id : The ID of the quiz whose questions we want to retrieve.
+     * @return A list containing the questions of a specific quiz with the given ID.
+     */
+    public List<Question> findByQuizId(Long id){
+        Iterable<Question> allQuestions = questionDao.findAll();
+        List <Question> questions = new ArrayList<>();
+        allQuestions.forEach(q -> {
+            if (q.getQuiz() != null && q.getQuiz().getId().equals(id)) {
+                questions.add(q);
+            }
+        });
+        return questions;
+    }
+
     @Transactional
     public void deleteById(Long id) {
         questionDao.deleteById(id);
+    }
+
+    /***
+     * Method that deletes the questions of a specific quiz.
+     * @param id The ID of the quiz whose questions we want to delete.
+     */
+    @Transactional
+    public  void deleteQuestionsOfQuiz(Long id) {
+        List<Question> quizQuestions = findByQuizId(id);
+        for (Question q : quizQuestions) {
+            Long questionId = q.getId();
+            questionDao.deleteById(questionId);
+        }
     }
 
     @Transactional
