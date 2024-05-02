@@ -22,20 +22,19 @@ import { Question } from "models/question.model"
         return this.http.get<Quiz>(`${this.quizUrl}/${id}`)
     }
 
-    getQuestionsOfQuiz(id: number): Observable<Question[]> {
+/*     getQuestionsOfQuiz(id: number): Observable<Question[]> {
         return this.http.get<Question[]>(this.quizUrl + `/${id}/questions`)
-      }
+      } */
 
     update(id: number, quiz: Quiz): Observable<Quiz> {
-        return this.http.post<Quiz>(`${this.quizUrl}-configuration/${id}`, quiz)
+        return this.http.post<Quiz>(`${this.quizUrl}-configuration-details/${id}`, quiz)
       }
     
     create(quiz: Quiz): Observable<Quiz> {
-        return this.http.post<Quiz>(this.quizUrl+`-configuration-new`, quiz)
+        return this.http.post<Quiz>(this.quizUrl, quiz)
     }
     
     delete(quiz: Quiz) {
-        return this.http.delete(`${this.quizUrl}-configuration/${quiz.id}`)
+        return this.http.delete(`${this.quizUrl}/${quiz.id}`)
     }
-
 }

@@ -10,7 +10,6 @@ public class QuizMapper {
                 .id(id)
                 .title(dto.getTitle())
                 .description(dto.getDescription())
-                .questions(dto.getQuestions())
                 .build();
     }
 
@@ -18,7 +17,6 @@ public class QuizMapper {
         return QuizDto.builder()
                 .title(quiz.getTitle())
                 .description(quiz.getDescription())
-                .questions(quiz.getQuestions())
                 .build();
     }
 }

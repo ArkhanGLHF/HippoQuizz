@@ -4,33 +4,30 @@ import com.takima.backskeleton.DAO.QuizDao;
 import com.takima.backskeleton.DTO.QuizDto;
 import com.takima.backskeleton.DTO.QuizMapper;
 import com.takima.backskeleton.models.Quiz;
-import com.takima.backskeleton.models.Question;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class QuizService {
     private final QuizDao quizDao;
 
     public List<Quiz> findAll() {
         Iterable<Quiz> it = quizDao.findAll();
-        List <Quiz> quizzes = new java.util.ArrayList<>();
+        List <Quiz> quizzes = new ArrayList<>();
         it.forEach(quizzes::add);
         return quizzes;
     }
 
-    public Quiz findById(Long id) {
-        return quizDao.findById(id).orElseThrow();
-    }
+    public Quiz getById(Long id) {
 
-    public List<Question> getQuestionsOfQuiz(Long id) {
-        return quizDao.getAllQuestionsFromQuiz(id);
+        return quizDao.findById(id).orElseThrow();
     }
 
     @Transactional

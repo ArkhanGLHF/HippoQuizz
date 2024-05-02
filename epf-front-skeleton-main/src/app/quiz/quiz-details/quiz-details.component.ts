@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { QuizService } from 'services/quiz.service';
 import { Quiz } from 'models/quiz.model';
 import { Question } from 'models/question.model';
+import { QuestionService } from 'services/question.service';
 
 @Component({
   selector: 'epf-quiz-details',
@@ -15,7 +16,7 @@ export class QuizDetailsComponent implements OnInit {
   currentQuestionIndex = 0;
   score = 0;
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService, private questionService: QuestionService) {
     this.quiz = {} as Quiz;
   }
 
@@ -30,7 +31,7 @@ export class QuizDetailsComponent implements OnInit {
           console.error('Error fetching quiz:', error);
         }
       );
-      this.quizService.getQuestionsOfQuiz(id).subscribe(
+      this.questionService.getQuestionsByQuizId(id).subscribe(
         (questions) => {
           this.questions$ = questions;
         },

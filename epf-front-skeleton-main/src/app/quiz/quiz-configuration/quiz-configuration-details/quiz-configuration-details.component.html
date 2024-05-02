@@ -1,6 +1,6 @@
 <ng-container *ngIf="quiz$ | async; let quiz">
   <h1>Quiz details</h1>
-  <form (ngSubmit)="save(quiz)" #quizDetailsForm="ngForm">
+  <form (ngSubmit)="save(quiz)" #quizUpdateForm="ngForm">
     <div class="form-group">
       <label for="title">Quiz title</label>
       <input type="text" class="form-control" id="title"
@@ -24,8 +24,8 @@
         Quiz description is required
       </div>
     </div>
-  
-    <button type="submit" mat-raised-button color="primary" [disabled]="!quizDetailsForm.form.valid">Save</button>
+    
+    <button type="submit" mat-raised-button color="primary" [disabled]="!quizUpdateForm.form.valid">Save</button>
   </form>
 
 </ng-container>

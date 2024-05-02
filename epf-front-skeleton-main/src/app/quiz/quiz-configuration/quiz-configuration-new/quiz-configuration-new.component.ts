@@ -18,7 +18,7 @@ export class QuizConfigurationNewComponent {
     
   }
 
-  quiz$ : Observable<Quiz> = new Observable((observer) => observer.next({title: "", description: "", questions: []}))
+  quiz$ : Observable<Quiz> = new Observable((observer) => observer.next({title: "", description: ""}))
 
   save(quiz: Quiz) {
     const id = this._route.snapshot.params["id"]
