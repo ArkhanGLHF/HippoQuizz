@@ -1,6 +1,6 @@
 <ng-container *ngIf="quiz$ | async; let quiz">
     <h1>Quiz details</h1>
-    <form (ngSubmit)="save(quiz)" #quizConfigurationNewForm="ngForm">
+    <form (ngSubmit)="saveQuiz(quiz)" #quizConfigurationNewForm="ngForm">
       <div class="form-group">
         <label for="title">Title</label>
         <input type="text" class="form-control" id="title"

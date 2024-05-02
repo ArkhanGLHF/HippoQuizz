@@ -31,6 +31,10 @@ public class QuestionService {
         return questionDao.findById(id).orElseThrow();
     }
 
+    public List<Question> getQuestionsOfQuiz(Long id) {
+        return questionDao.getAllQuestionsFromQuiz(id);
+    }
+
     @Transactional
     public void deleteById(Long id) {
         questionDao.deleteById(id);

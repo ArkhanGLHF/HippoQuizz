@@ -23,7 +23,7 @@ export class QuestionService {
   }
 
   getQuestionsByQuizId(id: number): Observable<Question[]> {
-    return this.http.get<Question[]>( `http://localhost:8080/quiz/${id}/questions`)
+    return this.http.get<Question[]>( `${this.questionsUrl}/test/${id}`)
   }
 
   update(id: number, question: Question): Observable<Question> {

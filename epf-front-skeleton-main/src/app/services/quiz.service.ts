@@ -31,10 +31,10 @@ import { Question } from "models/question.model"
       }
     
     create(quiz: Quiz): Observable<Quiz> {
-        return this.http.post<Quiz>(this.quizUrl, quiz)
+        return this.http.post<Quiz>(`${this.quizUrl}-configuration-new/`, quiz)
     }
     
     delete(quiz: Quiz) {
-        return this.http.delete(`${this.quizUrl}/${quiz.id}`)
+        return this.http.delete(`${this.quizUrl}-configuration/${quiz.id}`)
     }
 }

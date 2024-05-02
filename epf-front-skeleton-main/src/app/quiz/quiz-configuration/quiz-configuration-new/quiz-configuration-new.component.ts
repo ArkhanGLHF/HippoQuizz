@@ -20,7 +20,7 @@ export class QuizConfigurationNewComponent {
 
   quiz$ : Observable<Quiz> = new Observable((observer) => observer.next({title: "", description: ""}))
 
-  save(quiz: Quiz) {
+  saveQuiz(quiz: Quiz) {
     const id = this._route.snapshot.params["id"]
 
     this.quizService.create(quiz).subscribe(() => {

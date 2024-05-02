@@ -26,7 +26,6 @@ public class QuizService {
     }
 
     public Quiz getById(Long id) {
-
         return quizDao.findById(id).orElseThrow();
     }
 

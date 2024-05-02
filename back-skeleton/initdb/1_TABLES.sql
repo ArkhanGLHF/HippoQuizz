@@ -37,12 +37,16 @@ create table users
     password TEXT not null
 );
 
+DROP TABLE IF EXISTS quiz;
+
 create table quiz
 (
     id SERIAL PRIMARY KEY,
     title TEXT  not null,
     description TEXT not null
 );
+
+DROP TABLE IF EXISTS questions;
 
 CREATE TABLE questions
 (
