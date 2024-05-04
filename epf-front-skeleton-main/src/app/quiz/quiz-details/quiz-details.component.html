@@ -37,11 +37,9 @@
             
             </div>
             <!-- SAUVEGARDE DU RESULTAT-->
-            <div class=""card-body>
+            <div class=""card-body *ngIf="result$ | async; let result">
               <p>Vous avez obtenu {{ score }} / 10</p>
-              <button class="btn btn-primary"  (click)="saveResult()">Sauvegarder</button>
-
-
+              <button class="btn btn-primary"  (click)="saveResult(result)">Sauvegarder</button>
             </div>
           </div>
         </div>

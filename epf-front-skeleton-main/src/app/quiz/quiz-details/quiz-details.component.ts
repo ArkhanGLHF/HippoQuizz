@@ -7,6 +7,8 @@ import { Result } from 'models/result.model';
 import { ResultService } from 'services/result.service';
 import { User } from 'models/user.model';
 import { UserService } from 'services/user.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'epf-quiz-details',
@@ -29,7 +31,7 @@ export class QuizDetailsComponent implements OnInit {
   showResult = false;
   showQuestions = true;
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService, private resultService: ResultService, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService, private resultService: ResultService, private userService: UserService, private router: Router) {
     this.quiz = {} as Quiz;
     this.user = {} as User;
     this.result = {} as Result;
@@ -102,10 +104,12 @@ export class QuizDetailsComponent implements OnInit {
     }
   }
 
+  /* HIPPOLYTE VERSION :  
   saveResult(){
     // Création du résultat
     this.result.score = this.score;
-    this.result.dateCompleted = new Date();
+    //For the date i just want the format (yyyy-mm-dd)
+    this.result.dateCompleted = new Date(new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate());
     this.result.user = this.user;
     this.result.quiz = this.quiz;
     
@@ -119,6 +123,17 @@ export class QuizDetailsComponent implements OnInit {
         console.error('Error saving result:', error);
       }
     );
+  } */
+
+  result$: Observable<Result> = new Observable((observer) => observer.next({user: this.user, quiz: this.quiz, score: this.score, dateCompleted: new Date()}))
+
+  saveResult(result: Result) {
+    const id = this.route.snapshot.params["id"]
+    
+
+    this.resultService.create(result).subscribe(() => {
+      //this.router.navigate(["results"])
+    })
   }
 
   getQuestionImageSrc(){

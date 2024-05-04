@@ -53,7 +53,7 @@ CREATE TABLE questions (
 DROP TABLE results;
 
 CREATE TABLE results (
-    id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     user_id int not null,
     quiz_id int not null,
     score int not null,
