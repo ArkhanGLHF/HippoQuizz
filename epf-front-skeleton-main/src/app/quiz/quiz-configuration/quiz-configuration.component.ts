@@ -1,17 +1,21 @@
-import { Component } from "@angular/core"
+import { Component, OnInit } from "@angular/core"
 import { map, Observable } from "rxjs"
-import { Quiz } from "models/quiz.model"
+import { Quiz } from "../../models/quiz.model"
 import { ActivatedRoute, Router } from "@angular/router"
-import { QuizService } from "services/quiz.service"
+import { QuizService } from "../../services/quiz.service"
 
 @Component({
   selector: 'epf-quiz-configuration',
-  templateUrl: './quiz-configuration.component.html',
+  templateUrl: '../quiz-configuration/quiz-configuration.component.html',
   styleUrls: ['./quiz-configuration.component.scss']
 })
+
 export class QuizConfigurationComponent{
 
-  constructor(private _route: ActivatedRoute, private quizService: QuizService, private router: Router,) {
+  constructor(
+    private _route: ActivatedRoute, 
+    private quizService: QuizService, 
+    private router: Router,) {
   }
 
   quiz$ : Observable<Quiz[]> = this.quizService.findAll();

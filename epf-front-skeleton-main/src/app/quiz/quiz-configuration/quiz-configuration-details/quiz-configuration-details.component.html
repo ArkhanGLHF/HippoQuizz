@@ -1,6 +1,6 @@
 <ng-container *ngIf="quiz$ | async; let quiz">
   <h1>Quiz details</h1>
-  <form (ngSubmit)="save(quiz)" #quizUpdateForm="ngForm">
+  <form *ngIf="quizQuestions$ | async; let quizQuestions" (ngSubmit)="save(quiz,quizQuestions)" #quizUpdateForm="ngForm">
     <div class="form-group">
       <label for="title">Quiz title</label>
       <input type="text" class="form-control" id="title"
@@ -25,6 +25,32 @@
       </div>
     </div>
     
+    <div *ngFor="let index of range(10); let j = index">
+      <div class="form-group">
+        <label for="questionText">Text of the Question {{j+1}}</label>
+        <input type="text" class="form-control" id="questionText{{j}}"
+                required
+                [(ngModel)]="quizQuestions[j].questionText" name="questionText{{j}}"
+                #description="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="questionPicture">Picture's path of the Question {{j+1}}</label>
+        <input type="text" class="form-control" id="questionPicture{{j}}"
+                required
+                [(ngModel)]="quizQuestions[j].questionPicture" name="questionPicture{{j}}"
+                #description="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="questionAnswer">Answer of the Question {{j+1}}</label>
+        <input type="text" class="form-control" id="questionAnswer{{j}}"
+                required
+                [(ngModel)]="quizQuestions[j].questionAnswer" name="questionAnswer{{j}}"
+                #description="ngModel">
+      </div>
+    </div>
+
     <button type="submit" mat-raised-button color="primary" [disabled]="!quizUpdateForm.form.valid">Save</button>
   </form>
 

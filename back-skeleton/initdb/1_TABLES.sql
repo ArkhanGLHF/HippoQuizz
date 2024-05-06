@@ -29,6 +29,8 @@ create table student_course
     course_id int not null
 );
 
+DROP TABLE IF EXISTS users;
+
 create table users
 (
     id SERIAL PRIMARY KEY,
@@ -51,9 +53,9 @@ DROP TABLE IF EXISTS questions;
 CREATE TABLE questions
 (
     id SERIAL PRIMARY KEY,
-    quiz_id int not null,
     question_text TEXT not null,
     question_picture TEXT not null,
-    question_answer boolean not null
+    question_answer boolean not null,
+    quiz_id int not null
 );
 
