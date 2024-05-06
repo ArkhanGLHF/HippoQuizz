@@ -1,13 +1,17 @@
+.btn {
+  float: right;
+  margin: 0 8px;
+}
+
 .card-body {
-    .d-flex.justify-content-center {
-      button.btn {
-        margin-right: 1rem;
-      }
+  .TrueFalse {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    button {
+      margin: 0 8px;
     }
-  
-    .btn-primary {
-      float: right;
-    }
+  }
     #questionTitle{
         text-align:center;
         font-size: 1.5rem;
@@ -39,3 +43,5 @@
         letter-spacing: 1px;    
     }
   }
+
+

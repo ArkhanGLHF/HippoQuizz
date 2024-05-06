@@ -26,6 +26,7 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
 import { UserNewComponent } from './users/user-new/user-new.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultDetailsComponent } from './results/result-details/result-details.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ResultDetailsComponent } from './results/result-details/result-details.
     UserDetailsComponent,
     UserNewComponent,
     ResultsComponent,
-    ResultDetailsComponent
+    ResultDetailsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

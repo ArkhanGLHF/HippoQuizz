@@ -9,6 +9,8 @@ import { User } from 'models/user.model';
 import { UserService } from 'services/user.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
+
 
 @Component({
   selector: 'epf-quiz-details',
@@ -19,6 +21,7 @@ export class QuizDetailsComponent implements OnInit {
   quiz: Quiz;
   user: User;
   result: Result;
+  resultList$: Result[] = [];
   questions$: Question[] = [];
   currentQuestionIndex = 0;
   score= 0;
@@ -30,6 +33,7 @@ export class QuizDetailsComponent implements OnInit {
   resultTextColor = "";
   showResult = false;
   showQuestions = true;
+  showValidationSuccess = false;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService, private resultService: ResultService, private userService: UserService, private router: Router) {
     this.quiz = {} as Quiz;
@@ -88,52 +92,45 @@ export class QuizDetailsComponent implements OnInit {
   }
 
   goToNextQuestion() {
-    if(this.currentQuestionIndex < this.questions$.length - 1){
+    if (this.currentQuestionIndex < this.questions$.length - 1) {
       // Passage à la question suivante
       this.currentQuestionIndex++;
-
+  
       // Réinitialisation de l'affichage
       this.showQuestionResult = false;
       this.showNextButton = false;
       this.showAnswerButton = true;
       this.resultTextColor = "";
-    } else{
+    } else {
       // Affichage du résultat et du classement
       this.showResult = true;
       this.showQuestions = false;
+      this.resultService.findAll().pipe(
+        map(results => results.filter(result => result.quiz.id === this.quiz.id)),
+        map(filteredResults => filteredResults.sort((a, b) => b.score - a.score)),
+        map(sortedResults => sortedResults.slice(0, 5))
+      ).subscribe(
+        (topResults) => {
+          this.resultList$ = topResults;
+        },
+        (error) => {
+          console.error('Error fetching questions:', error);
+        }
+      );
     }
   }
-
-  /* HIPPOLYTE VERSION :  
-  saveResult(){
-    // Création du résultat
-    this.result.score = this.score;
-    //For the date i just want the format (yyyy-mm-dd)
-    this.result.dateCompleted = new Date(new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate());
-    this.result.user = this.user;
-    this.result.quiz = this.quiz;
-    
-
-    // Enregistrement du résultat en utilisant ResultService
-    this.resultService.create(this.result).subscribe(
-      (result) => {
-        console.log('Result saved:', result);
-      },
-      (error) => {
-        console.error('Error saving result:', error);
-      }
-    );
-  } */
 
   result$: Observable<Result> = new Observable((observer) => observer.next({user: this.user, quiz: this.quiz, score: this.score, dateCompleted: new Date()}))
 
   saveResult(result: Result) {
     const id = this.route.snapshot.params["id"]
     
-
     this.resultService.create(result).subscribe(() => {
       //this.router.navigate(["results"])
+      this.showValidationSuccess = true;
+      this.showResult = false;       
     })
+    
   }
 
   getQuestionImageSrc(){
