@@ -1,34 +1,67 @@
-<ng-container *ngIf="quiz$ | async; let quiz">
-    <h1>Quiz details</h1>
-    <form (ngSubmit)="saveQuiz(quiz)" #quizConfigurationNewForm="ngForm">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title"
-               required
-               [(ngModel)]="quiz.title" name="title"
-               #title="ngModel">
-        <div [hidden]="title.valid || title.pristine"
-             class="alert alert-danger">
-          Quiz Title is required
-        </div>
+<ng-container *ngIf="!quizCreated">
+  <h1>New Quiz Details</h1>
+  <form *ngIf="quiz$ | async; let quiz" (ngSubmit)="saveQuiz(quiz)" #quizConfigurationNewForm="ngForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title"
+             required
+             [(ngModel)]="quiz.title" name="title"
+             #title="ngModel">
+      <div [hidden]="title.valid || title.pristine"
+           class="alert alert-danger">
+        Quiz Title is required
       </div>
-  
-      <div class="form-group">
-        <label for="description">Quiz Description</label>
-        <input type="text" class="form-control" id="description"
-               required
-               [(ngModel)]="quiz.description" name="description"
-               #description="ngModel">
-        <div [hidden]="description.valid || description.pristine"
-             class="alert alert-danger">
-          Quiz Description is required
-        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Quiz Description</label>
+      <input type="text" class="form-control" id="description"
+             required
+             [(ngModel)]="quiz.description" name="description"
+             #description="ngModel">
+      <div [hidden]="description.valid || description.pristine"
+           class="alert alert-danger">
+        Quiz Description is required
       </div>
-    
-      <button type="submit" mat-raised-button color="primary" [disabled]="!quizConfigurationNewForm.form.valid">Save</button>
-    </form>
+    </div>
   
-  </ng-container>
-  
-  
-  
+    <button type="submit" mat-raised-button color="primary" [disabled]="!quizConfigurationNewForm.form.valid">Next</button>
+  </form>
+
+</ng-container>
+
+
+<!-- <ng-container *ngIf="quizCreated">
+  <h1>New Quiz Questions</h1>
+  <form *ngIf="quizQuestions$ | async; let quizQuestions" (ngSubmit)="saveQuestion(quizQuestions)" #quizConfigurationNewForm="ngForm">
+  <div *ngFor="let index of range(10); let j = index">
+    <div class="form-group">
+      <label for="questionText">Text of the Question {{j+1}}</label>
+      <input type="text" class="form-control" id="questionText{{j}}"
+              required
+              [(ngModel)]="quizQuestions[j].questionText" name="questionText{{j}}"
+              #description="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label for="questionPicture">Picture's path of the Question {{j+1}}</label>
+      <input type="text" class="form-control" id="questionPicture{{j}}"
+              required
+              [(ngModel)]="quizQuestions[j].questionPicture" name="questionPicture{{j}}"
+              #description="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label for="questionAnswer">Answer of the Question {{j+1}}</label>
+      <input type="text" class="form-control" id="questionAnswer{{j}}"
+              required
+              [(ngModel)]="quizQuestions[j].questionAnswer" name="questionAnswer{{j}}"
+              #description="ngModel">
+    </div>
+  </div> 
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="!quizConfigurationNewForm.form.valid">Save</button>
+  </form>
+
+</ng-container>-->
+
