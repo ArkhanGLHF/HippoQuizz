@@ -29,6 +29,8 @@ create table student_course
     course_id int not null
 );
 
+DROP TABLE users;
+
 create table users (
    id SERIAL PRIMARY KEY,
    username TEXT  not null,
@@ -36,11 +38,15 @@ create table users (
    password TEXT not null
 );
 
+DROP TABLE quiz;
+
 create table quiz (
    id SERIAL PRIMARY KEY,
    title TEXT  not null,
    description TEXT not null
 );
+
+DROP TABLE questions;
 
 CREATE TABLE questions (
    id SERIAL PRIMARY KEY,

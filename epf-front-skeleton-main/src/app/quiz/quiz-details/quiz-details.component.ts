@@ -32,8 +32,10 @@ export class QuizDetailsComponent implements OnInit {
   resultText = "";
   resultTextColor = "";
   showResult = false;
-  showQuestions = true;
+  showQuestions = false;
   showValidationSuccess = false;
+  showPlayerSelection : boolean = true;
+  selectedUserId: number = 0;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService, private resultService: ResultService, private userService: UserService, private router: Router) {
     this.quiz = {} as Quiz;
@@ -64,15 +66,6 @@ export class QuizDetailsComponent implements OnInit {
         }
       );
     }
-    // 
-    this.userService.findById(2).subscribe(
-      (user) => {
-        this.user = user;
-      },
-      (error) => {
-        console.error('Error fetching user:', error);
-      }
-    );
   }
 
   submitAnswer(answer: boolean) {
@@ -136,4 +129,26 @@ export class QuizDetailsComponent implements OnInit {
   getQuestionImageSrc(){
     return `assets/images/${this.quiz.id}/${this.currentQuestionIndex + 1}.png`;
   }
+
+  usersList$ = this.userService.findAll();
+
+  startQuiz(){
+    this.showQuestions = true;
+  }
+
+  selectPlayer(selectedUserId: number){ 
+    this.userService.findById(selectedUserId).subscribe(
+      (user) => {
+        this.user = user;
+        console.log("User selected: ", this.user);
+      },
+      (error) => {
+        console.error('Error fetching user:', error);
+      }
+    );
+
+    this.showPlayerSelection = false;
+    this.startQuiz();
+  }
+
 }

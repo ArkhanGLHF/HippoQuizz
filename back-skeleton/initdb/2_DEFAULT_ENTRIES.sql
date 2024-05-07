@@ -102,7 +102,7 @@ INSERT INTO users (id, username,email, password) VALUES (  4, 'test', 'test@edu.
 
 INSERT INTO results (id, user_id, quiz_id, score, date_completed)
 VALUES
-    (6, 25, 3, 9, '2024-04-25'),
-    (7, 25, 4, 8, '2024-04-24'),
-    (8, 25, 5, 9, '2024-04-23');
+    (6, 4, 3, 9, '2024-04-25'),
+    (7, 4, 4, 8, '2024-04-24'),
+    (8, 4, 5, 9, '2024-04-23');
 

@@ -7,6 +7,17 @@
           <h1 class="card-title">{{ quiz.title }}</h1>
         </div>
         <!-- Card Body-->
+        <div class="card-body" *ngIf="showPlayerSelection">
+          <!-- Player Selection -->
+          <div class="form-group">
+            <label for="user">Selectionnez un joueur</label>
+            <select class="form-control" id="user" [(ngModel)]="selectedUserId">
+              <option *ngFor="let user of usersList$ | async" [ngValue]="user.id">{{ user.username }}</option>
+            </select>
+            <button class="btn" mat-raised-button color="primary" (click)="selectPlayer(selectedUserId)">Jouer</button>
+          </div>
+        </div>
+        <!-- Card Body-->
         <div class="card-body" *ngIf="showQuestions">
           <div class="card mb-3" *ngIf="questions$.length > 0">
             <!-- Question Header -->
@@ -31,32 +42,30 @@
           <p> Score : {{ score }} / 10 </p>
         </div>
         <div class="result" *ngIf="showResult">
-          <div class="card mb-3">
-            <!-- AFFICHAGE DU CLASSEMENT-->
-            <div class="card-body">
-            <!-- Affichage du resultList$ sous forme de tableau-->
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Position</th>
-                    <th>Nom</th>
-                    <th>Score</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let result of resultList$; let i = index">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ result.user.username }}</td>
-                    <td>{{ result.score }} / 10</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- SAUVEGARDE DU RESULTAT-->
-            <div class="card-body" *ngIf="result$ | async; let result">
-              <p>Vous avez obtenu {{ score }} / 10</p>
-              <button class="btn" mat-raised-button color="primary" (click)="saveResult(result)">Sauvegarder</button>
-            </div>
+          <!-- AFFICHAGE DU CLASSEMENT-->
+          <div class="card-body">
+          <!-- Affichage du resultList$ sous forme de tableau-->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Position</th>
+                  <th>Nom</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let result of resultList$; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ result.user.username }}</td>
+                  <td>{{ result.score }} / 10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- SAUVEGARDE DU RESULTAT-->
+          <div class="card-body" *ngIf="result$ | async; let result">
+            <p>Vous avez obtenu {{ score }} / 10</p>
+            <button class="btn" mat-raised-button color="primary" (click)="saveResult(result)">Sauvegarder</button>
           </div>
         </div>
         <div class="card-body" *ngIf="showValidationSuccess">
