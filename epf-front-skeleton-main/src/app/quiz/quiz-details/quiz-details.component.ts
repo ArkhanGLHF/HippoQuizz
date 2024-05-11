@@ -39,12 +39,8 @@ export class QuizDetailsComponent implements OnInit {
           console.error('Error fetching quiz:', error);
         }
       );
-<<<<<<< HEAD
-      // Récupération des questions du quiz
-      this.quizService.getQuestionsOfQuiz(id).subscribe(
-=======
+      
       this.questionService.getQuestionsByQuizId(id).subscribe(
->>>>>>> feat-quizUpdate
         (questions) => {
           this.questions$ = questions;
         },

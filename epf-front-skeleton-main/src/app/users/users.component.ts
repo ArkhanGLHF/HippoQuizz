@@ -10,15 +10,7 @@ import { UserService } from "services/user.service"
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent{
-<<<<<<< HEAD
-  // 
-  // users$: Observable<User[]> = this._route.data.pipe(map((data) => data["users"]))
-
-  constructor(private _route: ActivatedRoute, private userService: UserService, private router: Router) {
-=======
-  
   constructor(private _route: ActivatedRoute, private userService: UserService, private router: Router,) {
->>>>>>> feat-quizUpdate
   }
 
   user$ : Observable<User[]> = this.userService.findAll();

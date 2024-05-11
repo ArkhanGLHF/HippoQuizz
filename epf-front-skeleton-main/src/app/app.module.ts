@@ -25,14 +25,11 @@ import { QuizDetailsComponent } from './quiz/quiz-details/quiz-details.component
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserNewComponent } from './users/user-new/user-new.component';
-<<<<<<< HEAD
 import { ResultsComponent } from './results/results.component';
 import { ResultDetailsComponent } from './results/result-details/result-details.component';
-=======
 import { QuizConfigurationComponent } from "quiz/quiz-configuration/quiz-configuration.component"
 import { QuizConfigurationDetailsComponent } from "quiz/quiz-configuration/quiz-configuration-details/quiz-configuration-details.component"
 import { QuizConfigurationNewComponent } from "quiz/quiz-configuration/quiz-configuration-new/quiz-configuration-new.component"
->>>>>>> feat-quizUpdate
 
 @NgModule({
   declarations: [
@@ -51,14 +48,11 @@ import { QuizConfigurationNewComponent } from "quiz/quiz-configuration/quiz-conf
     UsersComponent,
     UserDetailsComponent,
     UserNewComponent,
-<<<<<<< HEAD
     ResultsComponent,
-    ResultDetailsComponent
-=======
+    ResultDetailsComponent,
     QuizConfigurationComponent,
     QuizConfigurationDetailsComponent,
-    QuizConfigurationNewComponent,
->>>>>>> feat-quizUpdate
+    QuizConfigurationNewComponent
   ],
   imports: [
     BrowserModule,
