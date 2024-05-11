@@ -13,14 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/***
+ * Service class for the User entity.
+ */
 @Service
 @RequiredArgsConstructor
+
 public class UserService {
-    private final UserDao userDao; // Injection de dépendance => Pour utiliser le DAO
+    private final UserDao userDao;
 
-
-    /*
-        Explication : Récupère tous les utilisateurs
+    /***
+     * Method that retrieves all the users.
+     * @return A list containing all the users.
      */
     public List<User> findAll() {
         Iterable<User> it = userDao.findAll();
@@ -29,15 +33,28 @@ public class UserService {
         return users;
     }
 
+    /***
+     * Method that retrieves a specific user.
+     * @param id : The ID of the user we want to retrieve.
+     * @return The user with the given ID.
+     */
     public User getById(Long id) {
         return userDao.findById(id).orElseThrow();
     }
 
+    /***
+     * Method that deletes a specific user.
+     * @param id : The ID of the user we want to delete.
+     */
     @Transactional
     public void deleteById(Long id) {
         userDao.deleteById(id);
     }
 
+    /***
+     * Method that adds a user.
+     * @param UserDto : The DTO containing the information of the user we want to add.
+     */
     @Transactional
     public void addUser(UserDto UserDto) {
         User user;
@@ -49,6 +66,11 @@ public class UserService {
         userDao.save(user);
     }
 
+    /***
+     * Method that updates a user.
+     * @param UserDto : The DTO containing the information of the user we want to update.
+     * @param id : The ID of the user we want to update.
+     */
     @Transactional
     public void updateUser(UserDto UserDto, Long id) {
         userDao.findById(id)

@@ -1,6 +1,5 @@
 package com.takima.backskeleton.services;
 
-
 import com.takima.backskeleton.DAO.QuestionDao;
 import com.takima.backskeleton.DTO.QuestionDto;
 import com.takima.backskeleton.DTO.QuestionMapper;
@@ -14,11 +13,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/***
+ * Service class for the Question entity.
+ */
 @Service
 @RequiredArgsConstructor
+
 public class QuestionService {
     private final QuestionDao questionDao;
 
+    /***
+     * Method that retrieves all the questions.
+     * @return A list containing all the questions.
+     */
     public List<Question> findAll() {
         Iterable<Question> it = questionDao.findAll();
         List <Question> users = new ArrayList<>();
@@ -26,11 +33,21 @@ public class QuestionService {
         return users ;
     }
 
+    /***
+     * Method that retrieves a specific question.
+     * @param id : The ID of the question we want to retrieve.
+     * @return The question with the given ID.
+     */
     public Question getById(Long id) {
 
         return questionDao.findById(id).orElseThrow();
     }
 
+    /***
+     * Method that retrieves the questions of a specific quiz.
+     * @param id : The ID of the quiz whose questions we want to retrieve.
+     * @return A list containing the questions of a specific quiz with the given ID.
+     */
     public List<Question> getQuestionsOfQuiz(Long id) {
         return questionDao.getAllQuestionsFromQuiz(id);
     }
@@ -51,6 +68,10 @@ public class QuestionService {
         return questions;
     }
 
+    /***
+     * Method that deletes a specific question.
+     * @param id : The ID of the question we want to delete.
+     */
     @Transactional
     public void deleteById(Long id) {
         questionDao.deleteById(id);
@@ -58,7 +79,7 @@ public class QuestionService {
 
     /***
      * Method that deletes the questions of a specific quiz.
-     * @param id The ID of the quiz whose questions we want to delete.
+     * @param id : The ID of the quiz whose questions we want to delete.
      */
     @Transactional
     public  void deleteQuestionsOfQuiz(Long id) {
@@ -69,6 +90,10 @@ public class QuestionService {
         }
     }
 
+    /***
+     * Method that adds a question.
+     * @param questionDto : The DTO containing the information of the question we want to add.
+     */
     @Transactional
     public void addQuestion(QuestionDto questionDto) {
         Question question;
@@ -81,6 +106,11 @@ public class QuestionService {
         questionDao.save(question);
     }
 
+    /***
+     * Method that updates a question.
+     * @param questionDto : The DTO containing the information of the question we want to update.
+     * @param id : The ID of the question we want to update.
+     */
     @Transactional
     public void updateQuestion(QuestionDto questionDto, Long id) {
         questionDao.findById(id)

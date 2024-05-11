@@ -1,9 +1,11 @@
 package com.takima.backskeleton.DTO;
 
 import com.takima.backskeleton.models.User;
-
 import java.io.IOException;
 
+/***
+ * This class is used to map a UserDto to a User
+ * */
 public class UserMapper {
     public static User fromDto(UserDto dto, Long id) throws IOException {
         return new User.Builder()
@@ -13,12 +15,4 @@ public class UserMapper {
             .password(dto.getPassword())
             .build();
     }
-
-//    public static UserDto toDto (User user){
-//        return UserDto.builder()
-//                .username(user.getUsername())
-//                .email(user.getEmail())
-//                .password(user.getPassword())
-//                .build();
-//    }
 }

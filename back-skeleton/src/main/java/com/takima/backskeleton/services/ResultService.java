@@ -1,6 +1,5 @@
 package com.takima.backskeleton.services;
 
-
 import com.takima.backskeleton.DAO.ResultDao;
 import com.takima.backskeleton.DTO.ResultDto;
 import com.takima.backskeleton.DTO.ResultMapper;
@@ -14,11 +13,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/***
+ * Service class for the Result entity.
+ */
 @Service
 @RequiredArgsConstructor
+
 public class ResultService {
     private final ResultDao resultDao;
 
+    /***
+     * Method that retrieves all the results.
+     * @return A list containing all the results.
+     */
     public List<Result> findAll() {
         Iterable<Result> it = resultDao.findAll();
         List <Result> results = new ArrayList<>();
@@ -26,6 +33,11 @@ public class ResultService {
         return results;
     }
 
+    /***
+     * Method that retrieves a specific result.
+     * @param id : The ID of the result we want to retrieve.
+     * @return The result with the given ID.
+     */
     public Result getById(Long id) {
         return resultDao.findById(id).orElseThrow();
     }
@@ -46,6 +58,10 @@ public class ResultService {
         return results;
     }
 
+    /***
+     * Method that deletes a specific result.
+     * @param id : The ID of the result we want to delete.
+     */
     @Transactional
     public void deleteById(Long id) {
         resultDao.deleteById(id);
@@ -64,6 +80,10 @@ public class ResultService {
         }
     }
 
+    /***
+     * Method that adds a result.
+     * @param resultDto : The DTO containing the information of the result we want to add.
+     */
     @Transactional
     public void addResult(ResultDto resultDto) {
         Result result;
@@ -76,6 +96,11 @@ public class ResultService {
         resultDao.save(result);
     }
 
+    /***
+     * Method that updates a result.
+     * @param resultDto : The DTO containing the information of the result we want to update.
+     * @param id : The ID of the result we want to update.
+     */
     @Transactional
     public void updateResult(ResultDto resultDto, Long id) {
         resultDao.findById(id)
