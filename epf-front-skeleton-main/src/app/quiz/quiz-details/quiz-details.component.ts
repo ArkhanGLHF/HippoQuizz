@@ -38,7 +38,7 @@ export class QuizDetailsComponent implements OnInit {
   showPlayerSelection : boolean = true;
   selectedUserId: number = 0;
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService, private resultService: ResultService, private userService: UserService, private router: Router) {
+  constructor(private route: ActivatedRoute, private questionService: QuestionService, private quizService: QuizService, private resultService: ResultService, private userService: UserService, private router: Router) {
     this.quiz = {} as Quiz;
     this.user = {} as User;
     this.result = {} as Result;
