@@ -17,5 +17,9 @@ export class NavbarComponent {
     this.links.push({ name: "Users", href: "users" })
     this.links.push({ name: "Questions", href: "questions" })
     this.links.push({ name: "Results", href: "results" })*/
+    this.links.push({ name: "Results", href: "results" })
+    this.links.push({ name: "Quiz", href : "quiz"})
+    this.links.push({ name: "Question", href : "questions"})
+    this.links.push({ name: "Quiz Configuration", href : "quiz-configuration"})
   }
 }

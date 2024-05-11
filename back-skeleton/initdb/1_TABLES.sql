@@ -29,21 +29,21 @@ create table student_course
     course_id int not null
 );
 
-DROP TABLE users;
-
-create table users (
-   id SERIAL PRIMARY KEY,
-   username TEXT  not null,
-   email TEXT not null,
-   password TEXT not null
+create table users
+(
+    id SERIAL PRIMARY KEY,
+    username TEXT  not null,
+    email TEXT not null,
+    password TEXT not null
 );
 
-DROP TABLE quiz;
+DROP TABLE IF EXISTS quiz;
 
-create table quiz (
-   id SERIAL PRIMARY KEY,
-   title TEXT  not null,
-   description TEXT not null
+create table quiz
+(
+    id SERIAL PRIMARY KEY,
+    title TEXT  not null,
+    description TEXT not null
 );
 
 DROP TABLE questions;
@@ -65,5 +65,3 @@ CREATE TABLE results (
     score int not null,
     date_completed date not null
 );
-
-

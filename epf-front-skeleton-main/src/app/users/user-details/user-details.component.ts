@@ -34,8 +34,4 @@ export class UserDetailsComponent {
       })
     }
   }
-
-    updatePassword($event: string, user: User) {
-      user.password = $event
-    }
 }

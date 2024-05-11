@@ -10,6 +10,7 @@ import { UserService } from 'services/user.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
+import { QuestionService } from 'services/question.service';
 
 
 @Component({
@@ -56,8 +57,8 @@ export class QuizDetailsComponent implements OnInit {
           console.error('Error fetching quiz:', error);
         }
       );
-      // Récupération des questions du quiz
-      this.quizService.getQuestionsOfQuiz(id).subscribe(
+      
+      this.questionService.getQuestionsByQuizId(id).subscribe(
         (questions) => {
           this.questions$ = questions;
         },
