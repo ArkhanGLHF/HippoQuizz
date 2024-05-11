@@ -1,34 +1,46 @@
 package com.takima.backskeleton.controllers;
 
-import com.takima.backskeleton.models.Major;
-import com.takima.backskeleton.models.Question;
+import com.takima.backskeleton.DTO.QuizDto;
 import com.takima.backskeleton.models.Quiz;
-import com.takima.backskeleton.models.Student;
 import com.takima.backskeleton.services.QuizService;
+import com.takima.backskeleton.services.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin
-@RequestMapping("quiz")
+@RequestMapping("")
 @RestController
 @RequiredArgsConstructor
 public class QuizController {
     private final QuizService quizService;
+    private final QuestionService questionService;
 
-    @GetMapping("")
-    public List<Quiz> findAll() {
+    @GetMapping("quiz")
+    public List<Quiz> listQuiz() {
         return quizService.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Quiz findById(@PathVariable Long id) {
-        return quizService.findById(id);
+    @GetMapping("quiz/{id}")
+    public Quiz getQuizById(@PathVariable Long id) {
+        return quizService.getById(id);
     }
 
-    @GetMapping("/{id}/questions")
-    public List<Question> getQuestionsOfQuiz(@PathVariable Long id) {
-        return quizService.getQuestionsOfQuiz(id);
+    @DeleteMapping("quiz-configuration/{id}") // URL EXTENSION => localhost:8080/quiz/{id}
+    public void deleteQuiz(@PathVariable Long id) {
+        questionService.deleteQuestionsOfQuiz(id);
+        quizService.deleteById(id);
     }
+
+    @PostMapping("quiz-configuration-new/")    // URL MAPPING => localhost:8080/quiz
+    public void addQuiz(@RequestBody QuizDto quizDto) {
+        quizService.addQuiz(quizDto);
+    }
+
+    @PostMapping("quiz-configuration-details/{id}") // URL EXTENSION => localhost:8080/quiz/{id}
+    public void updateQuiz(@RequestBody QuizDto quizDto, @PathVariable Long id) {
+        quizService.updateQuiz(quizDto, id);
+    }
+
 }

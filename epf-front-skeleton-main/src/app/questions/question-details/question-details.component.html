@@ -1,0 +1,46 @@
+<ng-container *ngIf="question$ | async; let question">
+    <h1>Question's details</h1>
+    <form (ngSubmit)="save(question)" #questionForm="ngForm">
+      <div class="form-group">
+        <label for="questionText">Question's text</label>
+        <input type="text" class="form-control" id="questionText"
+               required
+               [(ngModel)]="question.questionText" name="questionText"
+               #questionText="ngModel">
+        <div [hidden]="questionText.valid || questionText.pristine"
+             class="alert alert-danger">
+          Question's text is required
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="questionPicture">Question's picture path</label>
+        <input type="text" class="form-control" id="questionPicture"
+               required
+               [(ngModel)]="question.questionPicture" name="questionPicture"
+               #questionPicture="ngModel">
+        <div [hidden]="questionPicture.valid || questionPicture.pristine"
+             class="alert alert-danger">
+             Question's picture path is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="questionAnswer">Question's answer</label>
+        <input type="text" class="form-control" id="questionAnswer"
+               required
+               [(ngModel)]="question.questionAnswer" name="questionAnswer"
+               #questionAnswer="ngModel">
+        <div [hidden]="questionAnswer.valid || questionAnswer.pristine"
+             class="alert alert-danger">
+             Question's answer is required
+        </div>
+      </div>
+    
+      <button type="submit" mat-raised-button color="primary" [disabled]="!questionForm.form.valid">Save</button>
+    </form>
+  
+  </ng-container>
+  
+  
+  

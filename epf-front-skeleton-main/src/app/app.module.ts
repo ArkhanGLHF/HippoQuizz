@@ -19,13 +19,20 @@ import { LoginComponent } from './login/login.component'
 import {MatCardModule} from '@angular/material/card'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { QuestionsComponent } from './questions/questions.component';
+import { QuestionDetailsComponent } from './questions/question-details/question-details.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizDetailsComponent } from './quiz/quiz-details/quiz-details.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserNewComponent } from './users/user-new/user-new.component';
+<<<<<<< HEAD
 import { ResultsComponent } from './results/results.component';
 import { ResultDetailsComponent } from './results/result-details/result-details.component';
+=======
+import { QuizConfigurationComponent } from "quiz/quiz-configuration/quiz-configuration.component"
+import { QuizConfigurationDetailsComponent } from "quiz/quiz-configuration/quiz-configuration-details/quiz-configuration-details.component"
+import { QuizConfigurationNewComponent } from "quiz/quiz-configuration/quiz-configuration-new/quiz-configuration-new.component"
+>>>>>>> feat-quizUpdate
 
 @NgModule({
   declarations: [
@@ -38,13 +45,20 @@ import { ResultDetailsComponent } from './results/result-details/result-details.
     MajorStudentsComponent,
     LoginComponent,
     QuestionsComponent,
+    QuestionDetailsComponent,
     QuizComponent,
     QuizDetailsComponent,
     UsersComponent,
     UserDetailsComponent,
     UserNewComponent,
+<<<<<<< HEAD
     ResultsComponent,
     ResultDetailsComponent
+=======
+    QuizConfigurationComponent,
+    QuizConfigurationDetailsComponent,
+    QuizConfigurationNewComponent,
+>>>>>>> feat-quizUpdate
   ],
   imports: [
     BrowserModule,
