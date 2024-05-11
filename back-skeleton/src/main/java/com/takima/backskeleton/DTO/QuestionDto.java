@@ -10,8 +10,8 @@ import lombok.Getter;
 @Builder
 @Getter
 public class QuestionDto {
+    private Quiz quiz;
     private String questionText;
     private String questionPicture;
     private boolean questionAnswer;
-    private Quiz quiz;
 }

@@ -10,10 +10,10 @@ public class QuestionMapper {
     public static Question fromDto(QuestionDto dto, Long id) throws IOException {
         return new Question.Builder()
                 .id(id)
+                .quiz(dto.getQuiz())
                 .questionText(dto.getQuestionText())
                 .questionPicture(dto.getQuestionPicture())
                 .questionAnswer(dto.isQuestionAnswer())
-                .quiz(dto.getQuiz())
                 .build();
     }
 }
