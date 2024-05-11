@@ -7,7 +7,18 @@
           <h1 class="card-title">{{ quiz.title }}</h1>
         </div>
         <!-- Card Body-->
-        <div class="card-body">
+        <div class="card-body" *ngIf="showPlayerSelection">
+          <!-- Player Selection -->
+          <div class="form-group">
+            <label for="user">Selectionnez un joueur</label>
+            <select class="form-control" id="user" [(ngModel)]="selectedUserId">
+              <option *ngFor="let user of usersList$ | async" [ngValue]="user.id">{{ user.username }}</option>
+            </select>
+            <button class="btn" mat-raised-button color="primary" (click)="selectPlayer(selectedUserId)">Jouer</button>
+          </div>
+        </div>
+        <!-- Card Body-->
+        <div class="card-body" *ngIf="showQuestions">
           <div class="card mb-3" *ngIf="questions$.length > 0">
             <!-- Question Header -->
             <div class="card-header">
@@ -18,7 +29,7 @@
             <div class="card-body">
               <p id="questionText">{{ questions$[currentQuestionIndex].questionText }}</p>
               <p [ngClass]="resultTextColor" *ngIf="showQuestionResult"> {{ resultText }} </p>
-              <div class="d-flex justify-content-center" *ngIf="showAnswerButton">
+              <div class="TrueFalse" *ngIf="showAnswerButton">
                 <button class="btn btn-success mr-2" (click)="submitAnswer(true)">Vrai</button>
                 <button class="btn btn-danger" (click)="submitAnswer(false)">Faux</button>
               </div>
@@ -26,10 +37,42 @@
           </div>
           <!-- Next Question Button -->
           <div *ngIf="showNextButton">
-            <button class="btn btn-primary"  (click)="goToNextQuestion()">Question suivante</button>
+            <button class="btn" mat-raised-button color="primary" (click)="goToNextQuestion()">Question suivante</button>
           </div>
           <p> Score : {{ score }} / 10 </p>
         </div>
+        <div class="result" *ngIf="showResult">
+          <!-- AFFICHAGE DU CLASSEMENT-->
+          <div class="card-body">
+          <!-- Affichage du resultList$ sous forme de tableau-->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Position</th>
+                  <th>Nom</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let result of resultList$; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ result.user.username }}</td>
+                  <td>{{ result.score }} / 10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- SAUVEGARDE DU RESULTAT-->
+          <div class="card-body" *ngIf="result$ | async; let result">
+            <p>Vous avez obtenu {{ score }} / 10</p>
+            <button class="btn" mat-raised-button color="primary" (click)="saveResult(result)">Sauvegarder</button>
+          </div>
+        </div>
+        <div class="card-body" *ngIf="showValidationSuccess">
+          <div class="alert alert-success" role="alert">
+            Votre résultat a bien été sauvegardé !
+          </div>
+          <button class="btn" mat-raised-button color="primary" routerLink="/quiz">Retour à la liste des quiz</button>
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@ import { UserService } from "services/user.service"
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent{
-  constructor(private _route: ActivatedRoute, private userService: UserService, private router: Router,) {
+  constructor(private _route: ActivatedRoute, private userService: UserService, private router: Router) {
   }
 
   user$ : Observable<User[]> = this.userService.findAll();

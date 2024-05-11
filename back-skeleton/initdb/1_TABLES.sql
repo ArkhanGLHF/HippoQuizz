@@ -46,6 +46,8 @@ create table quiz
     description TEXT not null
 );
 
+DROP TABLE questions;
+
 CREATE TABLE questions (
    id SERIAL PRIMARY KEY,
    quiz_id int not null,
@@ -57,7 +59,7 @@ CREATE TABLE questions (
 DROP TABLE results;
 
 CREATE TABLE results (
-    id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     user_id int not null,
     quiz_id int not null,
     score int not null,
