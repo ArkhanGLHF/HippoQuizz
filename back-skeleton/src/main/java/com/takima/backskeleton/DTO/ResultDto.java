@@ -11,8 +11,8 @@ import java.util.Date;
 @Builder
 @Getter
 public class ResultDto {
-    private int score;
-    private Date dateCompleted;
     private User user;
     private Quiz quiz;
+    private int score;
+    private Date dateCompleted;
 }

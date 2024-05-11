@@ -22,6 +22,7 @@ import { UserDetailsComponent } from "users/user-details/user-details.component"
 import { UserNewComponent } from "users/user-new/user-new.component"
 import { ResultsComponent } from "results/results.component"
 import { ResultDetailsComponent } from "results/result-details/result-details.component"
+import { AdminComponent } from "admin/admin.component"
 
 import { QuestionDetailsComponent } from "questions/question-details/question-details.component"
 
@@ -109,6 +110,10 @@ const routes: Routes = [
   {
     path: "result-details/:id",
     component: ResultDetailsComponent,
+  },
+  {
+    path: "admin",
+    component: AdminComponent,
   }
 ]
 

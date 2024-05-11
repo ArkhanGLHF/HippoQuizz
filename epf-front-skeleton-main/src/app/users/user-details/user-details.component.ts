@@ -10,7 +10,6 @@ import { UserService } from "services/user.service"
   styleUrls: ["./user-details.component.scss"],
 })
 export class UserDetailsComponent {
-  // user$: Observable<User> = this._route.data.pipe(map((data) => data["user"]))
 
   constructor(
     private _route: ActivatedRoute,

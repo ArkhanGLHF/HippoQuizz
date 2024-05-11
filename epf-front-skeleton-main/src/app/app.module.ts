@@ -27,6 +27,7 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
 import { UserNewComponent } from './users/user-new/user-new.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultDetailsComponent } from './results/result-details/result-details.component';
+import { AdminComponent } from './admin/admin.component';
 import { QuizConfigurationComponent } from "quiz/quiz-configuration/quiz-configuration.component"
 import { QuizConfigurationDetailsComponent } from "quiz/quiz-configuration/quiz-configuration-details/quiz-configuration-details.component"
 import { QuizConfigurationNewComponent } from "quiz/quiz-configuration/quiz-configuration-new/quiz-configuration-new.component"
@@ -50,6 +51,7 @@ import { QuizConfigurationNewComponent } from "quiz/quiz-configuration/quiz-conf
     UserNewComponent,
     ResultsComponent,
     ResultDetailsComponent,
+    AdminComponent,
     QuizConfigurationComponent,
     QuizConfigurationDetailsComponent,
     QuizConfigurationNewComponent

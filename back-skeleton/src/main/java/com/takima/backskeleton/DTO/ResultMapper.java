@@ -7,20 +7,20 @@ import java.io.IOException;
 public class ResultMapper {
     public static Result fromDto(ResultDto dto, Long id) throws IOException {
         return new Result.Builder()
-                .id(id)
-                .score(dto.getScore())
-                .dateCompleted(dto.getDateCompleted())
-                .user(dto.getUser())
-                .quiz(dto.getQuiz())
-                .build();
+            .id(id)
+            .user(dto.getUser())
+            .quiz(dto.getQuiz())
+            .score(dto.getScore())
+            .dateCompleted(dto.getDateCompleted())
+            .build();
     }
 
-    public static ResultDto toDto (Result result){
+    public ResultDto ToDo (Result result){
         return ResultDto.builder()
                 .score(result.getScore())
-                .dateCompleted(result.getDateCompleted())
                 .user(result.getUser())
                 .quiz(result.getQuiz())
+                .dateCompleted(result.getDateCompleted())
                 .build();
     }
 }
