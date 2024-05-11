@@ -22,7 +22,7 @@ public class QuestionController {
         return questionService.getById(id);
     }
 
-    @GetMapping("/test/{id}")
+    @GetMapping("/quiz/{id}")
     public List<Question> getQuestionsOfQuiz(@PathVariable Long id) {
         return questionService.getQuestionsOfQuiz(id);
     }
