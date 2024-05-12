@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface QuestionDao extends JpaRepository<Question, Long> {
-    @Query("SELECT q FROM Question q WHERE q.quiz.id = :id")
+    @Query("SELECT q FROM Question q WHERE q.quiz.id = :id ORDER BY q.id ASC")
     List<Question> getAllQuestionsFromQuiz(Long id);
 }

@@ -14,7 +14,11 @@ Pour lancer le projet :
 
 - Sur le Front (VS Code)
   - Dans le terminal : cd epf-front-skeleton-main
+  
   - Dans le terminal : npm start
+
+  - Cliquer sur play et se rendre sur `http://localhost:4200/`
+
 
 Enfin, se connecter sur le navigateur : localhost:4200
 

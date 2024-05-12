@@ -9,7 +9,6 @@ import lombok.Getter;
 @Getter
 public class QuestionDto {
     private String questionText;
-    private String questionPicture;
     private boolean questionAnswer;
     private Quiz quiz;
 }

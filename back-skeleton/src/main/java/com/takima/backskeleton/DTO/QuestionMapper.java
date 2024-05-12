@@ -9,7 +9,6 @@ public class QuestionMapper {
         return new Question.Builder()
                 .id(id)
                 .questionText(dto.getQuestionText())
-                .questionPicture(dto.getQuestionPicture())
                 .questionAnswer(dto.isQuestionAnswer())
                 .quiz(dto.getQuiz())
                 .build();
@@ -18,7 +17,6 @@ public class QuestionMapper {
     public static QuestionDto toDto (Question question){
         return QuestionDto.builder()
                 .questionText(question.getQuestionText())
-                .questionPicture(question.getQuestionPicture())
                 .questionAnswer(question.isQuestionAnswer())
                 .quiz(question.getQuiz())
                 .build();
