@@ -13,7 +13,7 @@ import { QuestionService } from "services/question.service"
 })
 export class QuizConfigurationNewComponent {
 
-  quizCreated : boolean = false
+  lastCreatedQuiz : Quiz 
 
   constructor(
     private _route: ActivatedRoute,
@@ -21,44 +21,46 @@ export class QuizConfigurationNewComponent {
     private questionService: QuestionService,
     private router: Router,
   ) {
+    this.lastCreatedQuiz = {} as Quiz
   }
-
+  
+  /***
+   * Create 10 questions for the quiz
+   * @param quiz : Quiz : The quiz to create the questions for
+   */
   createQuestions(quiz: Quiz) {
     for (let i = 0; i < 10; i++) {
       this.questionService.create({
         questionText: "",
         questionAnswer: false,
         quiz: quiz
-      }).subscribe(() => {
-
+      }).subscribe(() => {  
       });
     }
   }
 
   quiz$ : Observable<Quiz> = new Observable((observer) => observer.next({title: "", description: ""}))
 
-  saveQuiz(quiz: Quiz) {
+  quizQuestions$: Observable<Question[]> = {} as Observable<Question[]>
 
+  /***
+   * Method to create a new quiz (title, description)
+   * @param quiz : Quiz : The quiz to create
+   */
+  saveQuiz(quiz: Quiz) {
+    //Creation of the quiz in the database with the title and description entered by the user
     this.quizService.create(quiz).subscribe(() => {
-      this.quizCreated = true
-      this.quiz$.subscribe((quiz) => {
-        this.createQuestions(quiz)
+      
+      //Retrieve the quiz that we just have created
+      this.quizService.findLastCreated().subscribe((lastCreatedQuiz) => {
+        //Save the last created quiz in the attribute lastCreatedQuiz
+        this.lastCreatedQuiz = lastCreatedQuiz;
+
+        //Create 10 default questions for the new quiz
+        this.createQuestions(lastCreatedQuiz)
+        //Navigate to the quiz configuration details page to fulfill the questions and answers
+        this.router.navigate(["quiz-configuration-details/", lastCreatedQuiz.id])
       })
     })
-  }
-
-  quizQuestions: Observable<Question[]> = this.questionService.getQuestionsByQuizId(this._route.snapshot.params["id"]);
-
-  saveQuestion(quizQuestions: Question[]) {
-
-    for(let i = 0; i < 10; i++) {
-      this.questionService.create(quizQuestions[i]).subscribe(() => {
-      })
-    }
-    this.router.navigate(["quiz-configuration"])
-  }
-
-  range(length: number) {
-    return Array.from({ length }, (_, i) => i);
   }
 }

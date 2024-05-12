@@ -52,6 +52,14 @@ import { HttpClient } from "@angular/common/http"
     create(quiz: Quiz): Observable<Quiz> {
         return this.http.post<Quiz>(`${this.quizUrl}-configuration-new/`, quiz)
     }
+
+    /**
+     * Retrieve the last created quiz from the API
+     * @returns Observable<Quiz> : The last created quiz
+     */
+    findLastCreated(): Observable<Quiz> {
+        return this.http.get<Quiz>(`${this.quizUrl}-configuration-new/`)
+    }
     
     /**
      * Delete a specific quiz from the API

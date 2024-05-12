@@ -1,4 +1,4 @@
-<ng-container *ngIf="!quizCreated">
+<ng-container>
   <h1>New Quiz Details</h1>
   <form *ngIf="quiz$ | async; let quiz" (ngSubmit)="saveQuiz(quiz)" #quizConfigurationNewForm="ngForm">
     <div class="form-group">
@@ -28,31 +28,5 @@
   </form>
   
   </ng-container>
-  
-  <!-- 
-  <ng-container *ngIf="quizCreated">
-    <h1>New Quiz Questions</h1>
-
-    <form *ngIf="quizQuestions$ | async; let quizQuestions" (ngSubmit)="saveQuestion(quizQuestions)" #quizConfigurationNewForm="ngForm">
-    <div *ngFor="let index of range(10); let j = index">
-      <div class="form-group">
-        <label for="questionText">Text of the Question {{j+1}}</label>
-        <input type="text" class="form-control" id="questionText{{j}}"
-                required
-                [(ngModel)]="quizQuestions[j].questionText" name="questionText{{j}}"
-                #description="ngModel">
-      </div>
-
-      <div class="form-group">
-        <label for="questionAnswer">Answer of the Question {{j+1}}</label>
-        <input type="text" class="form-control" id="questionAnswer{{j}}"
-                required
-                [(ngModel)]="quizQuestions[j].questionAnswer" name="questionAnswer{{j}}"
-                #description="ngModel">
-      </div>
-    </div> 
-    <button type="submit" mat-raised-button color="primary" [disabled]="!quizConfigurationNewForm.form.valid">Save</button>
-  </form>
-</ng-container>-->
   
   

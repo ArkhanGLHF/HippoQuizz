@@ -120,7 +120,6 @@ export class QuizDetailsComponent implements OnInit {
     const id = this.route.snapshot.params["id"]
     
     this.resultService.create(result).subscribe(() => {
-      //this.router.navigate(["results"])
       this.showValidationSuccess = true;
       this.showResult = false;       
     })

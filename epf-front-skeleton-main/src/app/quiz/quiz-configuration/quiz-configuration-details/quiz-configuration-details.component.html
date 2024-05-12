@@ -1,6 +1,7 @@
 <ng-container *ngIf="quiz$ | async; let quiz">
   <h1>Quiz details</h1>
   <form *ngIf="quizQuestions$ | async; let quizQuestions" (ngSubmit)="save(quiz,quizQuestions)" #quizUpdateForm="ngForm">
+    <!-- Input to enter the quiz title -->
     <div class="form-group">
       <label for="title">Quiz title</label>
       <input type="text" class="form-control" id="title"
@@ -13,6 +14,7 @@
       </div>
     </div>
 
+    <!-- Input to enter the quiz description -->
     <div class="form-group">
       <label for="description">Quiz description</label>
       <input type="text" class="form-control" id="description"
@@ -25,7 +27,10 @@
       </div>
     </div>
 
+    <!-- Input to enter the quiz questions -->
+    <!-- Loop to display all the quiz' questions -->
     <div *ngFor="let index of range(10); let j = index">
+      <!-- Input to enter the question text -->
       <div class="form-group">
         <label for="questionText">Text of the Question {{j+1}}</label>
         <input type="text" class="form-control" id="questionText{{j}}"
@@ -34,6 +39,7 @@
                 #description="ngModel">
       </div>
       
+      <!-- Input to enter the question answer -->
       <div class="form-group">
         <label for="questionAnswer">Answer of the Question {{j+1}}</label>
         <input type="text" class="form-control" id="questionAnswer{{j}}"

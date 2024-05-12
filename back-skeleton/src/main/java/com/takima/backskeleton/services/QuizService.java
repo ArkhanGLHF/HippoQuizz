@@ -67,6 +67,16 @@ public class QuizService {
     }
 
     /***
+     * Method that retrieves the last created quiz.
+     * @return The last created quiz.
+     */
+    @Transactional
+    public Quiz getLastCreatedQuiz() {
+        return quizDao.getLastCreatedQuiz();
+    }
+
+
+    /***
      * Method that updates a quiz.
      * @param quizDto : The DTO containing the information of the quiz we want to update.
      * @param id : The ID of the quiz we want to update.
