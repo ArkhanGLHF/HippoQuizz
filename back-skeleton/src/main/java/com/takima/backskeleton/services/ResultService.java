@@ -59,6 +59,22 @@ public class ResultService {
     }
 
     /***
+     * Method that retrieves the results held by a specific user.
+     * @param id : The ID of the user whose results we want to retrieve.
+     * @return A list containing the results held by the user with the given ID.
+     */
+    public List<Result> findByQuizId(Long id){
+        Iterable<Result> allResults = resultDao.findAll();
+        List <Result> results = new ArrayList<>();
+        allResults.forEach(r -> {
+            if (r.getQuiz() != null && r.getQuiz().getId().equals(id)) {
+                results.add(r);
+            }
+        });
+        return results;
+    }
+
+    /***
      * Method that deletes a specific result.
      * @param id : The ID of the result we want to delete.
      */
@@ -79,6 +95,20 @@ public class ResultService {
             resultDao.deleteById(resultId);
         }
     }
+
+    /***
+     * Method that deletes the results of a specific quiz.
+     * @param id The ID of the quiz whose results we want to delete.
+     */
+    @Transactional
+    public  void deleteByQuizId(Long id){
+        List<Result> quizResults = findByQuizId(id);
+        for (Result r : quizResults){
+            Long resultId = r.getId();
+            resultDao.deleteById(resultId);
+        }
+    }
+
 
     /***
      * Method that adds a result.

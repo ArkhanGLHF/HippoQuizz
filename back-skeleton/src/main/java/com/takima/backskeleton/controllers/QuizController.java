@@ -4,6 +4,7 @@ import com.takima.backskeleton.DTO.QuizDto;
 import com.takima.backskeleton.models.Quiz;
 import com.takima.backskeleton.services.QuizService;
 import com.takima.backskeleton.services.QuestionService;
+import com.takima.backskeleton.services.ResultService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ import java.util.List;
 public class QuizController {
     private final QuizService quizService;
     private final QuestionService questionService;
+    private final ResultService resultService;
 
     /***
      * This method is used to get all quizzes
@@ -46,6 +48,7 @@ public class QuizController {
      */
     @DeleteMapping("quiz-configuration/{id}") // URL EXTENSION => localhost:8080/quiz/{id}
     public void deleteQuiz(@PathVariable Long id) {
+        resultService.deleteByQuizId(id);
         questionService.deleteQuestionsOfQuiz(id);
         quizService.deleteById(id);
     }
