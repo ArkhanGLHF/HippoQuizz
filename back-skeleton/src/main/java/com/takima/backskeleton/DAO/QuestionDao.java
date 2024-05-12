@@ -16,6 +16,6 @@ public interface QuestionDao extends JpaRepository<Question, Long> {
      * @param id : the id of the quiz
      * @return a list of questions
      */
-    @Query("SELECT q FROM Question q WHERE q.quiz.id = :id")
+    @Query("SELECT q FROM Question q WHERE q.quiz.id = :id ORDER BY q.id ASC")
     List<Question> getAllQuestionsFromQuiz(Long id);
 }

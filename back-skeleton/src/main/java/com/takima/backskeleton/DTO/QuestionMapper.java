@@ -12,7 +12,6 @@ public class QuestionMapper {
                 .id(id)
                 .quiz(dto.getQuiz())
                 .questionText(dto.getQuestionText())
-                .questionPicture(dto.getQuestionPicture())
                 .questionAnswer(dto.isQuestionAnswer())
                 .build();
     }
