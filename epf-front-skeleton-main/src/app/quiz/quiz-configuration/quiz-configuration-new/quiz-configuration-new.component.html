@@ -42,13 +42,7 @@
                 [(ngModel)]="quizQuestions[j].questionText" name="questionText{{j}}"
                 #description="ngModel">
       </div>
-      <div class="form-group">
-        <label for="questionPicture">Picture's path of the Question {{j+1}}</label>
-        <input type="text" class="form-control" id="questionPicture{{j}}"
-                required
-                [(ngModel)]="quizQuestions[j].questionPicture" name="questionPicture{{j}}"
-                #description="ngModel">
-      </div>
+
       <div class="form-group">
         <label for="questionAnswer">Answer of the Question {{j+1}}</label>
         <input type="text" class="form-control" id="questionAnswer{{j}}"

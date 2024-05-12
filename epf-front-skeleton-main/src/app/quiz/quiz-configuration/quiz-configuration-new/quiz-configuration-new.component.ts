@@ -27,7 +27,6 @@ export class QuizConfigurationNewComponent {
     for (let i = 0; i < 10; i++) {
       this.questionService.create({
         questionText: "",
-        questionPicture: "",
         questionAnswer: false,
         quiz: quiz
       }).subscribe(() => {
